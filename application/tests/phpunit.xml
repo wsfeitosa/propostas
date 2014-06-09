@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit colors="true" stopOnFailure="false" bootstrap="/var/www/html/allink/Clientes/propostas/application/tests/phpunit_bootstrap.php">
+	<testsuites>
+		<testsuite name="models">
+			<directory suffix=".php">/var/www/html/allink/Clientes/propostas/application/tests/models</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>
+

@@ -1,0 +1,1 @@
+<center><?php echo img("assets/img/pesquisando.gif"); ?></center>

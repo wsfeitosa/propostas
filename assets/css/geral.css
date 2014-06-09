@@ -1,0 +1,596 @@
+/************************************************* CSS DOCUMENT *************************************************/
+<!--
+/************************************************** CORPO DO DOCUMENTO ******************************************/
+
+.validate { color:red; }
+/**************************************** *************************** *******************************************/
+/****************************************************** LINKS ***************************************************/
+a, A:link, a:visited, a:active
+{
+	color: #000000;
+	text-decoration: none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+
+A:hover
+{
+	color: #FF0000;
+	text-decoration: none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+/**************************************** *************************** *******************************************/
+/***************************************************** TABELAS **************************************************/
+p, tr, td
+{
+	color: #0000FF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+th
+{
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 9px;
+}
+/**************************************** *************************** *******************************************/
+/***************************************************** HEADER 1 *************************************************/
+.header1, h1
+{
+	color: #FFFFFF;
+	background: #4682B4;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	margin: 0px;
+	padding-left: 2px;
+	height: 21px
+}
+/**************************************** *************************** *******************************************/
+/***************************************************** HEADER 2 *************************************************/
+.header2, h2
+{
+	color: #000000;
+	background: #DBEAF5;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+/**************************************** *************************** *******************************************/
+/***************************************************** HEADER 2 *************************************************/
+.intd
+{
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	padding-left: 15px;
+}
+/**************************************** *************************** *******************************************/
+/***************************************************** HEADER 2 *************************************************/
+.wcell
+{
+	background: #FFFFFF;
+	vertical-align: top;
+}
+/**************************************** *************************** *******************************************/
+/***************************************************** HEADER 2 *************************************************/
+.ctrl
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+/**************************************** *************************** *******************************************/
+/***************************************************** HEADER 2 *************************************************/
+.btnform
+{
+	border: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	background-color: #DBEAF5;
+	width: 75%;
+	height:10px;
+	text-align: center;
+	cursor: pointer;
+}
+/**************************************** *************************** *******************************************/
+/***************************************************** HEADER 2 *************************************************/
+.btn
+{
+	background-color: #DBEAF5;
+	padding: 0px;
+	text-align: center;
+}
+/**************************************** *************************** *******************************************/
+/********************************************** OBJETOS DOS FORMULARIOS *****************************************/
+textarea, select, input
+{
+	font: 9px Verdana, Arial, Helvetica, sans-serif;
+	/*background-color: #FFFFFF;*/
+	/*border-style: none;*/
+}
+/**************************************** *************************** *******************************************/
+/************************************************* OCULTANDO CAIXAS *********************************************/
+.esconde
+{
+	font: 9px Verdana, Arial, Helvetica, sans-serif;
+	background-color: #FFFFFF;
+	border-style: none;
+}
+/**************************************** *************************** *******************************************/
+/************************************************* OCULTANDO CAIXAS *********************************************/
+.escondendo_botao
+{
+	display: none;
+}
+/**************************************** *************************** *******************************************/
+.branco
+{
+	background-color: #FFFFFF;
+}
+.azul_claro
+{
+	background-color: #DBEAF5;
+}
+.azul_escuro
+{
+	background-color: #4682B4;
+}
+.red
+{
+	color: #FF0000;
+}
+/************************************************ LABEL DOS FORMULARIOS *****************************************/
+.tfvHighlight
+{
+	font-weight: bold;
+	color: red;
+}
+.tfvNormal
+{
+	font-weight: normal;
+	color: #0000FF;
+}
+/**************************************** *************************** *******************************************/
+/*********************************************** IMAGEM DOS FORMULARIOS *****************************************/
+.linha_t
+{
+	background-image: url(http://localhost/CodeIgniter/assets/img/line_t.gif);
+	background-repeat: repeat;
+}
+.linha_l
+{
+	background-image: url(http://localhost/CodeIgniter/assets/img/line_l.gif);
+	background-repeat: repeat;
+}
+.linha_r
+{
+	background-image: url(http://localhost/CodeIgniter/assets/img/line_r.gif);
+	background-repeat: repeat;
+}
+.pixel
+{
+	background-image: url(http://localhost/CodeIgniter/assets/img/pixel.gif);
+	width: 1px;
+	height: 18px;
+	background-repeat: repeat;
+}
+.formtab_b
+{
+	background-image: url(http://localhost/CodeIgniter/assets/img/formtab_b.gif);
+	width: 10px;
+	height: 22px;
+	background-repeat: no-repeat;
+}
+.btn_adicionar
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: url(http://localhost/CodeIgniter/assets/img/adicionar.jpg);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.btn_calcular
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: url(http://localhost/CodeIgniter/assets/img/calcular.jpg);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.adicionar_registro
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: url(http://localhost/CodeIgniter/assets/img/adicionar_registro.jpg);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.alterar_registro
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: url(http://localhost/CodeIgniter/assets/img/alterar_registro.jpg);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.atualizar_registro
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: url(http://localhost/CodeIgniter/assets/img/atualizar_registro.jpg);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.check_ok
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: url(http://localhost/CodeIgniter/assets/img/check_ok.jpg);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.duvidas
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: url(http://localhost/CodeIgniter/assets/img/duvidas.jpg);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.localizar_registro
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.mail
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: url(http://localhost/CodeIgniter/assets/img/mail.jpg);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.novo_registro
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.profit
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: url(http://localhost/CodeIgniter/assets/img/profit.jpg);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.sair_sistema
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.salvar_registro
+{
+	padding: 0px;
+	text-align: center;
+
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.visualizar_grafico
+{
+	background-color: #DBEAF5;
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: url(http://localhost/CodeIgniter/assets/img/visualizar_grafico.jpg);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.voltar_registro
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.porto
+{
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+/**************************************** *************************** *******************************************/
+div span
+{
+	display: none;
+}
+/*
+div:hover span
+{
+	display: block;
+	position: absolute;
+	right: 0px;
+	background: #FFC;
+	color: black;
+	border: 1px dotted black;
+	width: 150px;
+	padding: 10px;
+}*/
+/**************************************************** TOOLTIP ***************************************************/
+p.barNav
+{
+	position:relative;
+}
+.barNav a
+{
+	font: 8px Verdana, Helvetica, sans-serif, Arial;
+	text-decoration: none;
+	text-align: center;
+	padding: 2px;
+	margin-right: 0px;
+}
+.barNav a:hover
+{
+	color: #666666;
+	background: none;
+}
+.barNav a span
+{
+	display:none;
+}
+.barNav a:hover span
+{
+	display: block;
+	position: absolute;
+	bottom: 25px;
+	width: 200px;
+	height: 40px;
+	right: 0;
+	padding: 2px 0;
+	color: #666;
+	background: #fffff0;
+	font-size: 12px;
+	border: 2px dotted #000;
+	text-align: center;
+}
+/**************************************** *************************** *******************************************/
+
+.select_multiple
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8.5px;
+	width: 330px;
+	height: 120px;
+}
+.select_multiple_01
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8.5px;
+	width: 200px;
+	height: 120px;
+}
+.select_multiple_02
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8.5px;
+	width: 170px;
+	height: 100px;
+}
+.select_multiple_03
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8.5px;
+	width: 150px;
+	height: 75px;
+}
+.select_multiple_qnt
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FF0000;
+	font-size: 8.5px;
+	width: 80px;
+	height: 250px;
+}
+.select_multiple_numero
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8.5px;
+	width: 120px;
+	height: 250px;
+}
+.select_multiple_dados
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8.5px;
+	width: 200px;
+	height: 250px;
+}
+/************************************************* AZUL ESCURO **************************************************/
+.a_e
+{
+	background-color: #333399;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 9px;
+	color: #FFFFFF;
+}
+/**************************************** *************************** *******************************************/
+/*********************************************** ALINHAMENTO CENTRO *********************************************/
+.alinhado_center
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 9px;
+	color: #000000;
+}
+/**************************************** *************************** *******************************************/
+.fonte_red
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FF0000;
+	font-size: 7.5pt;
+	text-align: center;
+}
+.logo_denied
+{
+	background-image: url(http://localhost/CodeIgniter/assets/img/acess_denied.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.access_denied
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 12px;
+	color: #000000;
+}
+.access_italic
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12px;
+	color: #000000;
+}
+.fonte_normal
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #000000;
+}
+.fonte_bold
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12px;
+	color: #000000;
+}
+/************************************************ TABELA COM BORDA AZUL *******************************************/
+.tabela_azul
+{
+	border:1px solid #4682B4;
+	border-top:#ffffff;
+}
+/**************************************** *************************** *******************************************/
+/************************************************ TABELA COM BORDA AZUL *******************************************/
+.titulo_tabela
+{
+	background-color:#4682B4;
+	color:#FFFFFF;
+	font-family:Verdana;
+	size:12px;
+	text-align:center;
+	border-top:#FFFFFF;
+}
+/**************************************** *************************** *******************************************/
+/************************************************ TABELA COM FUNDO AZUL CLARO *******************************************/
+.label
+{
+	background-color:#DBEAF5;
+	font-family:Verdana;
+	size:12px;
+	text-align:center;
+	border-top:#FFFFFF;
+}
+/**************************************** *************************** *******************************************/
+/************************************************ BARRA DE MENU *******************************************/
+.barra_menu
+{
+	background-color:#4682B4;
+	height:1px;	
+}
+/**************************************** *************************** *******************************************/
+.linha_paginacao
+{
+	background-color:#003399;
+	color:#FFFFFF;
+	text-align:center;
+}
+.texto_pb
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #000000;
+	background: #ffffff;
+}
+.texto_pb1
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #000000;
+	background: #ffffff;
+}
+.texto_pb2
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #000000;
+}
+.texto_pb3
+{
+	font-family: tahoma;
+	font-size: 11px;
+	color: #000000;
+}
+.texto_vermelho
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #FFFFFF;
+	background: #FF4040;
+}
+
+.texto_dourado
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #000000;
+	background: #EEDD82;
+}
+
+.tabela_padrao{
+	background:#DBEAF5;
+}
+hr{
+	 border:1px solid #4682B4;
+}
+label.error { 
+	color: red; 
+	font-size: 10px; 
+	font-weight: bold;
+}
+-->
+/**************************** CSS ITEMS DE CARGA ***************************************************************/
+.nao_obrigatorio
+{
+	font-size: 9px;
+	color:#FF0000;
+}
+/******************************* FIM CSS ITENS DE CARGA ********************************************************/
