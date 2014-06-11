@@ -194,7 +194,7 @@ $(document).ready(function(){
 		
 	});
 	
-	//Barra de Progresso     
+    //Barra de Progresso     
     $( "#progressbar" ).progressbar({
         value: 100       
     });

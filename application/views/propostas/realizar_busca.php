@@ -27,7 +27,7 @@
 						<?php echo form_dropdown("sentido", $sentidos, "EXP", "id='sentido'")?>							
 					</td>
 					<td class="texto_pb" colspan="1">												
-                        <?php echo form_checkbox(array('name' => 'apenas_meus', 'id' => 'apenas_meus','checked' => false, 'title' => 'Busca Apenas os acordos cadastrados por mim'));?>
+                        <?php echo form_checkbox(array('name' => 'apenas_meus', 'id' => 'apenas_meus','checked' => false, 'value' => 'S', 'title' => 'Busca Apenas os acordos cadastrados por mim'));?>
                     </td>
 					<td class="texto_pb" colspan="1">							
 						<?php echo form_dropdown("status", $status, "0", "id='status'");?>							
@@ -37,33 +37,49 @@
 					</td>
 				</tr>
                 <tr>
-					<td colspan="1" id="label_apenas_meus">						
+					<td colspan="2" id="label_apenas_meus">						
                         Número Proposta Master:
 					</td>
-                    <td colspan="1" id="label_apenas_meus">
+                    <td colspan="2" id="label_apenas_meus">
 						Número Item Proposta:
-					</td>
-					<td colspan="1" id="label_inicial">
-						Data Inicial:
-					</td>
-					<td colspan="1" id="label_validade">
-						Validade:
-					</td>									                                                   
+					</td>												                                                   
 				</tr>
                 <tr>
-					<td class="texto_pb" colspan="1">							
+					<td class="texto_pb" colspan="2">							
                         <?php echo form_input(array('name' => 'numero_proposta_master', 'id' => 'numero_proposta_master', 'title' => 'Número do acordo que você quer pesquisar'));?>
 					</td>
-                    <td class="texto_pb" colspan="1">					
+                    <td class="texto_pb" colspan="2">					
                         <?php echo form_input(array('name' => 'numero_item_proposta', 'id' => 'numero_item_proposta', 'title' => 'Número do acordo que você quer pesquisar'));?>
+					</td>																				      
+				</tr>
+                <tr>
+                    <td colspan="1" id="label_inicial">
+						Data Inicial (De):
+					</td>
+                    <td colspan="1" id="label_inicial">
+						Data Inicial (Até):
+					</td>
+					<td colspan="1" id="label_validade">
+						Validade (De):
+					</td>
+                    <td colspan="1" id="label_validade">
+						Validade (Até):
+					</td>
+                </tr>
+                <tr>
+                    <td class="texto_pb" colspan="1">							
+						<?php echo form_input(Array("name" => "data_inicial_inicio", "id" => "data_inicial_inicio", "title" => '')); ?>				
+					</td>	
+                    <td class="texto_pb" colspan="1">							
+						<?php echo form_input(Array("name" => "data_inicial_final", "id" => "data_inicial_final", "title" => '')); ?>				
 					</td>
 					<td class="texto_pb" colspan="1">							
-						<?php echo form_input(Array("name" => "data_inicial", "id" => "data_inicial", "title" => 'Data em que o acordo começará a valer efetivamente')); ?>				
-					</td>	
-					<td class="texto_pb" colspan="1">							
-						<?php echo form_input(Array("name" => "data_final", "id" => "data_final", "title" => "Data limite em que o acordo estará válido")); ?>				
-					</td>																      
-				</tr>
+						<?php echo form_input(Array("name" => "validade_inicio", "id" => "validade_inicio", "title" => "")); ?>				
+					</td>
+                    <td class="texto_pb" colspan="1">							
+						<?php echo form_input(Array("name" => "validade_final", "id" => "validade_final", "title" => '')); ?>				
+					</td>
+                </tr>
                 <tr>
 					<td colspan="1" id="label_apenas_meus">
 						Cadastrada Por:

@@ -5,16 +5,34 @@ $(document).ready(function(){
     $("input[name*='_imp']").hide();
       
     // Dicas de preenchimento da tela
-    $( document ).tooltip();
+    $( document ).tooltip({
+        position: { my: "left top+15", at: "left top-65", collision: "flipfit" }
+    });
     
-    $("#data_inicial").attr("readonly",true);
-    $("#data_inicial").datepicker({
+    $("#data_inicial_inicio").attr("readonly",true);
+    $("#data_inicial_inicio").datepicker({
+            dateFormat: 'dd-mm-yy' ,
             changeYear: true , 
             changeMonth: true, 
     });
 
-    $("#data_final").attr("readonly",true);
-    $("#data_final").datepicker({
+    $("#validade_inicio").attr("readonly",true);
+    $("#validade_inicio").datepicker({
+            dateFormat: 'dd-mm-yy' ,
+            changeYear: true , 
+            changeMonth: true, 
+    });
+    
+    $("#data_inicial_final").attr("readonly",true);
+    $("#data_inicial_final").datepicker({
+            dateFormat: 'dd-mm-yy' ,
+            changeYear: true , 
+            changeMonth: true, 
+    });
+
+    $("#validade_final").attr("readonly",true);
+    $("#validade_final").datepicker({
+            dateFormat: 'dd-mm-yy' ,
             changeYear: true , 
             changeMonth: true, 
     });
@@ -227,8 +245,15 @@ $(document).ready(function(){
     $("#localizar").click(function(){
        
        $("#progressbar").show();
-       $("form").submit();
+       $("#corpo").hide();
+
+       $('form').submit().delay(4000);
        
+    });
+    
+    //Barra de Progresso     
+    $( "#progressbar" ).progressbar({
+        value: 100       
     });
     
     IndeterminateProgressBar($("#progressbar"));

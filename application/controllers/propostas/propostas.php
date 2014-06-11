@@ -422,7 +422,7 @@ class Propostas extends CI_Controller {
                                 "1" => "Pendente de Envio",
                                 "2" => "Aguardando Desbloqueio",
                                 "3" => "Enviada ao Cliente",
-                                "8" => "Utilizada"
+                                "8" => "Utilizada (Proposta Spot)"
         );
         
         $data['filiais'] = Array(
@@ -438,7 +438,7 @@ class Propostas extends CI_Controller {
     	$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/novo.jpg', 'id' => 'novo' , 'border' => 0)).'</a>';    	
     	$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/localizar.gif', 'id' => 'localizar' , 'border' => 0)).'</a>';
     	$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/voltar.gif', 'id' => 'voltar' , 'border' => 0)).'</a>';
-    	 
+    	
     	$footer['footer'] = $imagens;
     	    	    	
     	$this->load->view("Padrao/header_view_new",$header);
@@ -447,21 +447,31 @@ class Propostas extends CI_Controller {
     }
     
     public function listar_resultados_busca()
-    {
-        pr($this->input->post());exit();
-        $this->load->model("Propostas/Buscas/search_factory");
-        $this->load->library("Scoa/url");
+    {   
+        $this->output->enable_profiler(FALSE);
+        $this->load->model("Propostas/Factory/filtro_factory");
+        $this->load->model("Propostas/Buscas/aplica_filtros_busca");
         
-        $url_library = new Url();
+        $aplicadorFiltros = new Aplica_Filtros_Busca();
         
-        $buscador = Search_Factory::factory($this->input->post('tipo_consulta'));
-              
-        $propostas_encontradas = $buscador->buscar(
-                                                    $url_library->decodificarUrl($this->input->post('dado_para_busca')),
-                                                    $this->input->post('sentido'),
-                                                    $this->input->post('vencidas')
-        );
-        
+        foreach( $this->input->post() as $nome_filtro => $valor_filtro )
+        {            
+            try {
+                
+                if( ! empty($valor_filtro) )
+                {
+                    $filtro = Filtro_Factory::factory($nome_filtro);
+                    $filtro->novo($valor_filtro);     
+                    $aplicadorFiltros->adicionarFiltro($filtro,$nome_filtro);
+                }            
+                           
+            } catch (Exception $exc) {
+                
+            }
+        }    
+                       
+        $propostas_encontradas = $aplicadorFiltros->aplicarFiltrosDePesquisa();
+                        
         $header['form_title'] = 'Scoa - Propostas Econtradas';
     	$header['form_name'] = 'Propostas Encontradas';
     	$header['css'] = '';

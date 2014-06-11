@@ -38,7 +38,7 @@ class Adicionais extends CI_Controller{
 		$this->load->view("Padrao/header_view_new",$header);
 		$this->load->view("Adicionais/novo");
 		$this->load->view("Padrao/footer_view_new",$footer);
-	          
+	    
 	}
 	
 	public function alterar($id_acordo = null)
