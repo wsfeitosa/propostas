@@ -270,7 +270,7 @@ class Solicitacao_Desbloqueio extends CI_Model {
 		}
 	}
 	
-	public function enviarAprovacao()
+	public function enviarAprovacao($exclusao = FALSE)
 	{
 		//Salva a aprovação e atualiza os dados do desbloqueio
 		$this->load->model("Adicionais/Desbloqueios/email_model");
@@ -293,12 +293,22 @@ class Solicitacao_Desbloqueio extends CI_Model {
 		$dadosAprovacao['id_usuario_aprovacao'] = $aprovador->getId();
 		$dadosAprovacao['data_aprovacao'] = $dataAprovacao->format('Y-m-d H:i:s');
 		$dadosAprovacao['aprovado'] = $this->acordo->serializar();
-		$dadosAprovacao['status'] = strtoupper("aprovado");
-		
+				
+        if( $exclusao == FALSE )
+        {
+            $acao = "";
+            $dadosAprovacao['status'] = strtoupper("aprovado");
+        }
+        else
+        {
+            $acao = "(Exclusão) ";
+            $dadosAprovacao['status'] = strtoupper("cancelado");
+        }  
+        
 		$this->db->where("id",$this->id);
 		$this->db->update("CLIENTES.desbloqueios_adicionais",$dadosAprovacao);
 		
-		$mensagem =	$this->email_model->formatarMensagemDeAprovacao($this);
+		$mensagem =	$this->email_model->formatarMensagemDeAprovacao($this, $exclusao);
 		
 		//Adiciona o email da pessoa que solicitou o desbloqueio
 		$this->usuario_model->findById($this->solicitante);
@@ -353,8 +363,8 @@ class Solicitacao_Desbloqueio extends CI_Model {
 		}
 		
 		$clienteAssunto = $this->acordo->getClientes();
-		
-		$assuntoEmail = "Resposta da solicitação de desbloqueio de acordo de adicionais: " . $this->acordo->getNumeroAcordo() . " - " . $clienteAssunto[0]->getRazao();
+		                
+		$assuntoEmail = $acao."Resposta da solicitação de desbloqueio de acordo de adicionais: " . $this->acordo->getNumeroAcordo() . " - " . $clienteAssunto[0]->getRazao();
 		
 		//FIXME Descomentar esta linha para enviar às mensagens
 		//$enviado = $this->envio->enviarMensagem($mensagem, $assuntoEmail);

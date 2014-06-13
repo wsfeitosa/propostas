@@ -249,5 +249,10 @@ class Acordo_Adicionais_Model extends CI_Model{
 		return $numeroAcordo;		
 
 	}
+    
+    public function verificarStatusDoAcordo( Acordo_Adicionais $acordo )
+    {
+        
+    }    
 		
 }

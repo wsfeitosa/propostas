@@ -284,10 +284,63 @@ class Adicionais_Facade extends CI_Model{
 		 * Antes de enviar o email de aprovação o sistema verifica se o usuário
 		 * optou por alterar retroativamente às propostas do cliente. 
 		 * Apenas propostas Cotação e Tarifário serão influênciadas.
-		 */
-		
+		 */		
 		$solicitacao->enviarAprovacao();
 		
 	}
+    
+    public function excluirSolicitacaoDeDesbloqueio(Acordo_Adicionais $acordo)
+    {
+        /**
+         * Busca os dados da solicitação de desbloqueio
+         */
+        $this->load->model("Adicionais/Desbloqueios/solicitacao_desbloqueio");
+        $this->load->model("Adicionais/Desbloqueios/solicitacao_desbloqueio_model");
+        $this->load->model("Adicionais/acordo_adicionais_model");
+        
+        $this->db->
+                   select("id")->
+                   from("CLIENTES.desbloqueios_adicionais")->
+                   where("status",  strtoupper("pendente"))->
+                   where("id_acordo",$acordo->getId());
+        
+        $rowSet = $this->db->get();
+        $id_solicitacao = $rowSet->row()->id;
+        
+        $solicitacaoDesbloqueio = new Solicitacao_Desbloqueio();
+        $solicitacaoDesbloqueio->setId((int)$id_solicitacao);
+        
+        $solicitacao_model = new Solicitacao_Desbloqueio_Model();
+        $solicitacao_model->buscaSolicitacaoPorId($solicitacaoDesbloqueio);
+        
+        /**
+         * Se o acordo for novo então cancela o acordo, caso contrário apenas muda o status.
+         */
+        $acordo_model = new Acordo_Adicionais_Model();
+        $acordo_model->consultarAcordoAdicionaisPorId($acordo);
+        
+        $dadosDoAcordoParaAtualizacao = array("aprovacao_pendente" => strtoupper("N"));
+        
+        if( ! $acordo->getUsuarioAlteracao() instanceof Usuario )
+        {
+            $dadosDoAcordoParaAtualizacao["ativo"] = "N";
+        }    
+        
+		$this->db->where("id",$acordo->getId());
+		$this->db->update("CLIENTES.acordo_adicionais",$dadosDoAcordoParaAtualizacao);
+        
+        /**
+         * Envia uma mensagem avisando ao usuário que fez a solicitação
+         * que a solicitação dele foi excluida. 
+         */
+        
+        //FIXME se a data do que foi serializada na solicitação de desbloqueio
+        // Estiver invalida (pois o PHP não serializa objetod DateTime ???),
+        // Então substitui com a data original do acordo        
+        $solicitacaoDesbloqueio->getAcordo()->setInicio($acordo->getInicio());       
+        $solicitacaoDesbloqueio->getAcordo()->setValidade($acordo->getValidade());        
+        
+        $solicitacaoDesbloqueio->enviarAprovacao(TRUE);        
+    }    
 	
 }

@@ -339,9 +339,10 @@ class Adicionais extends CI_Controller{
 		);
 		
 		$data['status'] = Array(
-								"0" => "Todas - Ativas / Canceladas",
-								"1" => "Somente Ativas",
-								"2" => "Somente Canceladas"				
+								"0" => "Vencida",
+								"1" => "Valida",
+								"2" => "Pendente Aprovação",
+                                "3" => "Cancelada",
 		);
 		
 		$data['filiais'] = Array(
@@ -363,7 +364,7 @@ class Adicionais extends CI_Controller{
 		
 		if( is_null($id_cliente) )
 		{
-			log_message('error','O id_do cliente recebido para testar se jÃ¡ existe um acordo estava null');
+			log_message('error','O id_do cliente recebido para testar se já existe um acordo estava null');
 			show_error("Impossivel pesquisar por acordo existente");
 		}
 
@@ -439,16 +440,17 @@ class Adicionais extends CI_Controller{
 
 	public function excluir_solicitacao($id_acordo)
 	{		
-		$this->db->where("id_acordo",$id_acordo);
-		$this->db->where("status",strtoupper("pendente"));
-		$this->db->update("CLIENTES.desbloqueios_adicionais",array("status" => strtoupper("cancelado")));
-
-		//Muda o satus do acordo
-		$this->db->where("id",$id_acordo);
-		$this->db->update("CLIENTES.acordo_adicionais",array("aprovacao_pendente" => strtoupper("N")));
-
+		$this->load->model("Adicionais/acordo_adicionais");
+        $this->load->model("Adicionais/adicionais_facade");
+        
+        $acordo = new Acordo_Adicionais();
+        $acordo->setId((int)$id_acordo);
+        
+        $facade = new Adicionais_Facade();
+        $facade->excluirSolicitacaoDeDesbloqueio($acordo);        
+        
 		echo "<script language='javascript'>
-				alert('SolicitaÃ§Ã£o excluida com sucesso!');
+				alert('Solicitação excluida com sucesso!');
 				window.location = '/Clientes/propostas/index.php/adicionais/adicionais/listar_solicitacoes/';
 			  </script>";
 	}

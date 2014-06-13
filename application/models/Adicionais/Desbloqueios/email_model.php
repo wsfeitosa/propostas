@@ -105,7 +105,7 @@ class Email_Model extends CI_Model {
 		
 	}
 	
-	public function formatarMensagemDeAprovacao(Solicitacao_Desbloqueio $solicitacao)
+	public function formatarMensagemDeAprovacao(Solicitacao_Desbloqueio $solicitacao, $exclusao = FALSE)
 	{
 		$this->load->model("Email/email");
 		$this->load->model("Email/envio");
@@ -124,9 +124,10 @@ class Email_Model extends CI_Model {
 		$usuario_model->findById($usuario);
 		$assinatura = $usuario_model->gerarAssinatura($usuario);
 		
+        //FIXME às data do acordo estão incorretas pois não é possivel serializar objetos do tipo DateTime
 		$dataInicioSolicitada = $solicitacao->getAcordo()->getInicio();
 		$validadeSolicitada = $solicitacao->getAcordo()->getValidade();
-						
+                						
 		(string) $labelClientes = "";
 		(string) $labelTaxas = "";
 		(string) $corpo_email = "";
@@ -157,15 +158,24 @@ class Email_Model extends CI_Model {
 			$labelTaxas .= $this->serializa_taxa->ConverterTaxaParaString($taxa) . "<br />";
 		}
 		
+        if( $exclusao == FALSE )
+        {
+            $acao = "foi aprovado";
+        }
+        else
+        {
+            $acao = "teve a solicitação excluída";
+        }    
+        
 		(string) $mensagem = '<div class="uma_coluna">
 						      	<label class="conteudo">
 						        	Prezado Solicitante,<br/>
-						           	O acordo de taxas adicionais sobre o frete número '.$solicitacao->getAcordo()->getNumeroAcordo().', dos seguintes clientes foi aprovado:<p />
+						           	O acordo de taxas adicionais sobre o frete número '.$solicitacao->getAcordo()->getNumeroAcordo().', dos seguintes clientes '.$acao.':<p />
 									'.$labelClientes.' <p />
 									Data de inicio: '.$dataInicioSolicitada->format('d/m/Y').'<br />
 									Data de validade: '.$validadeSolicitada->format('d/m/Y').'	<p />
 		
-									Taxas Aprovadas:<br />
+									Taxas:<br />
 									'.$labelTaxas.'<p />
 		
 									Observações:<br />
@@ -194,7 +204,7 @@ class Email_Model extends CI_Model {
 							</head>
 							<body>';
 		$corpo_email .= "<div class='principal'>";
-		$corpo_email .= "<p class='titulo'> Resposta de aprovação de valores e condições do acordo de adicionais {$solicitacao->getAcordo()->getNumeroAcordo()} </p>";
+		$corpo_email .= "<p class='titulo'> Resposta de solicitação de desbloqueio de valores e condições do acordo de adicionais {$solicitacao->getAcordo()->getNumeroAcordo()} </p>";
 		$corpo_email .= $mensagem;
 		$corpo_email .="</div>";
 		$corpo_email .="<div class='botoes'>Email enviado em: ".date('d/m/Y H:i:s')."</div>";

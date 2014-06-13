@@ -74,8 +74,7 @@ class Envio {
 	  * @return boolean
 	  */
 	public function enviarMensagem( $corpoMensagem, $assunto ,$anexo = "", $nome_anexo = "")
-	{
-
+	{        
 		include_once $_SERVER['DOCUMENT_ROOT']."/Libs/envia_msg.php";
 		include_once APPPATH."/models/Usuarios/usuario.php";
 		include_once APPPATH."/models/Usuarios/usuario_model.php";
