@@ -128,13 +128,13 @@ $(document).ready(function() {
     
     /** Adiciona uma taxa na proposta **/
     $("#incluir_taxa").click(function(){
-    	document.getElementById("frame").src = "/Clientes/propostas/index.php/taxas_locais/taxas_locais/add/propostas_taxas_add.js";
+    	document.getElementById("frame").src = "/Clientes/propostas/index.php/taxas_locais/taxas_locais/add/propostas_taxas_add.js/" + $("#sentido").val() + "/adicionais";
 
         $("#pop").show("slow");
     });
     
     $("#incluir_taxa_local").click(function(){
-    	document.getElementById("frame").src = "/Clientes/propostas/index.php/taxas_locais/taxas_locais/add/propostas_taxas_locais_add.js";
+    	document.getElementById("frame").src = "/Clientes/propostas/index.php/taxas_locais/taxas_locais/add/propostas_taxas_locais_add.js/" + $("#sentido").val() + "/locais";
 
         $("#pop").show("slow");
     });

@@ -3,7 +3,9 @@ $(function(){
 	$("#dialog-confirm").hide();
 	
 	// Dicas de preenchimento da tela
-	$( document ).tooltip();	
+        $( document ).tooltip({
+            position: { my: "left top+15", at: "left top-65", collision: "flipfit" }
+        });	
 	
 	$("#progressbar").hide();
 	

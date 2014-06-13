@@ -78,3 +78,151 @@ ERROR - 2014-06-11 11:21:14 --> Severity: Warning  --> Filtro_Factory::include_o
 ERROR - 2014-06-11 11:21:14 --> Severity: Notice  --> Undefined variable: type /var/www/html/allink/Clientes/propostas/application/models/Propostas/Factory/filtro_factory.php 29
 ERROR - 2014-06-11 11:23:09 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
 ERROR - 2014-06-11 11:23:52 --> Severity: Notice  --> Undefined variable: existeAcordo /var/www/html/allink/Clientes/propostas/application/controllers/adicionais/adicionais.php 355
+ERROR - 2014-06-11 11:26:21 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:26:21 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:26:21 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:26:21 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:26:21 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:26:21 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:26:21 --> Severity: Notice  --> Undefined variable: novaTaxa /var/www/html/allink/Clientes/propostas/application/models/Adicionais/adicionais_facade.php 233
+ERROR - 2014-06-11 11:26:21 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-11 11:26:34 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:26:35 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:26:36 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:26:37 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:26:38 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:26:39 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:26:40 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:28:51 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:28:51 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:28:51 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:28:51 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:28:51 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:28:51 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:28:51 --> Severity: Notice  --> Undefined variable: novaTaxa /var/www/html/allink/Clientes/propostas/application/models/Adicionais/adicionais_facade.php 233
+ERROR - 2014-06-11 11:28:51 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-11 11:29:05 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:29:11 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:29:12 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:29:13 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:29:14 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 11:30:36 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:30:36 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:30:36 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:30:36 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:30:36 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:30:36 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:30:36 --> Severity: Notice  --> Undefined variable: novaTaxa /var/www/html/allink/Clientes/propostas/application/models/Adicionais/adicionais_facade.php 233
+ERROR - 2014-06-11 11:30:36 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-11 11:30:36 --> Severity: Warning  --> fopen(/var/www/html/allink/post.txt) [<a href='function.fopen'>function.fopen</a>]: failed to open stream: Permission denied /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 18
+ERROR - 2014-06-11 11:30:36 --> Severity: Warning  --> fwrite(): supplied argument is not a valid stream resource /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 19
+ERROR - 2014-06-11 11:30:36 --> Severity: Warning  --> fclose(): supplied argument is not a valid stream resource /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 20
+ERROR - 2014-06-11 11:34:24 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:34:24 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:34:24 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:34:24 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:34:24 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:34:24 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:34:24 --> Severity: Notice  --> Undefined variable: novaTaxa /var/www/html/allink/Clientes/propostas/application/models/Adicionais/adicionais_facade.php 233
+ERROR - 2014-06-11 11:34:25 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-11 11:37:49 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:49 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:49 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:49 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:49 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:49 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:49 --> Severity: Notice  --> Undefined variable: novaTaxa /var/www/html/allink/Clientes/propostas/application/models/Adicionais/adicionais_facade.php 233
+ERROR - 2014-06-11 11:37:49 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-11 11:37:56 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:56 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:56 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:56 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:56 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:56 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:37:56 --> Severity: Notice  --> Undefined variable: novaTaxa /var/www/html/allink/Clientes/propostas/application/models/Adicionais/adicionais_facade.php 233
+ERROR - 2014-06-11 11:37:57 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-11 11:38:50 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:38:50 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:38:50 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:38:50 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:38:50 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:38:50 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:38:50 --> Severity: Notice  --> Undefined variable: novaTaxa /var/www/html/allink/Clientes/propostas/application/models/Adicionais/adicionais_facade.php 233
+ERROR - 2014-06-11 11:38:50 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-11 11:38:50 --> Severity: Warning  --> fopen(/var/www/html/allink/post.txt) [<a href='function.fopen'>function.fopen</a>]: failed to open stream: Permission denied /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 18
+ERROR - 2014-06-11 11:38:50 --> Severity: Warning  --> fwrite(): supplied argument is not a valid stream resource /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 19
+ERROR - 2014-06-11 11:38:50 --> Severity: Warning  --> fclose(): supplied argument is not a valid stream resource /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 20
+ERROR - 2014-06-11 11:39:49 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:39:49 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:39:49 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:39:49 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:39:49 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:39:49 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:39:49 --> Severity: Notice  --> Undefined variable: novaTaxa /var/www/html/allink/Clientes/propostas/application/models/Adicionais/adicionais_facade.php 233
+ERROR - 2014-06-11 11:39:49 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-11 11:39:50 --> Severity: Warning  --> fopen(/var/www/html/allink/post.txt) [<a href='function.fopen'>function.fopen</a>]: failed to open stream: Permission denied /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 19
+ERROR - 2014-06-11 11:39:50 --> Severity: Warning  --> fwrite(): supplied argument is not a valid stream resource /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 20
+ERROR - 2014-06-11 11:39:50 --> Severity: Warning  --> fclose(): supplied argument is not a valid stream resource /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 21
+ERROR - 2014-06-11 11:41:18 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:41:18 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:41:18 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:41:18 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:41:18 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:41:18 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:41:18 --> Severity: Notice  --> Undefined variable: novaTaxa /var/www/html/allink/Clientes/propostas/application/models/Adicionais/adicionais_facade.php 233
+ERROR - 2014-06-11 11:41:18 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-11 11:41:18 --> Severity: Warning  --> fopen(/var/www/html/allink/post.txt) [<a href='function.fopen'>function.fopen</a>]: failed to open stream: Permission denied /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 19
+ERROR - 2014-06-11 11:41:18 --> Severity: Warning  --> fwrite(): supplied argument is not a valid stream resource /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 20
+ERROR - 2014-06-11 11:41:18 --> Severity: Warning  --> fclose(): supplied argument is not a valid stream resource /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 21
+ERROR - 2014-06-11 11:42:56 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:42:56 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:42:56 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:42:56 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:42:56 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:42:56 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-11 11:42:57 --> Severity: Notice  --> Undefined variable: novaTaxa /var/www/html/allink/Clientes/propostas/application/models/Adicionais/adicionais_facade.php 233
+ERROR - 2014-06-11 11:42:57 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-11 11:42:57 --> Severity: Warning  --> fopen(/var/www/html/allink/post.txt) [<a href='function.fopen'>function.fopen</a>]: failed to open stream: Permission denied /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 19
+ERROR - 2014-06-11 11:42:57 --> Severity: Warning  --> fwrite(): supplied argument is not a valid stream resource /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 20
+ERROR - 2014-06-11 11:42:57 --> Severity: Warning  --> fclose(): supplied argument is not a valid stream resource /var/www/html/allink/Clientes/propostas/application/models/Adicionais/altera_propostas.php 21
+ERROR - 2014-06-11 12:01:36 --> Severity: Warning  --> Filtro_Factory::include_once(/var/www/html/allink/Clientes/propostas/application/models/Propostas/Buscas/Filtros/filtro_destino_exp.php) [<a href='filtro-factory.include-once'>filtro-factory.include-once</a>]: failed to open stream: No such file or directory /var/www/html/allink/Clientes/propostas/application/models/Propostas/Factory/filtro_factory.php 25
+ERROR - 2014-06-11 12:01:36 --> Severity: Warning  --> Filtro_Factory::include_once() [<a href='function.include'>function.include</a>]: Failed opening '/var/www/html/allink/Clientes/propostas/application/models/Propostas/Buscas/Filtros/filtro_destino_exp.php' for inclusion (include_path='.:/usr/share/php:/var/www/html/allink/phpmail') /var/www/html/allink/Clientes/propostas/application/models/Propostas/Factory/filtro_factory.php 25
+ERROR - 2014-06-11 12:01:36 --> Severity: Notice  --> Undefined variable: type /var/www/html/allink/Clientes/propostas/application/models/Propostas/Factory/filtro_factory.php 29
+ERROR - 2014-06-11 12:01:43 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 12:01:43 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 12:03:14 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 12:03:37 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 12:03:37 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 149
+ERROR - 2014-06-11 13:51:01 --> Severity: Notice  --> Undefined variable: js /var/www/html/allink/Clientes/propostas/application/views/Adicionais/taxas_permitidas.php 20
+ERROR - 2014-06-11 13:51:11 --> Severity: Notice  --> Undefined variable: js /var/www/html/allink/Clientes/propostas/application/views/Adicionais/taxas_permitidas.php 20
+ERROR - 2014-06-11 14:58:12 --> Severity: Notice  --> Undefined variable: js /var/www/html/allink/Clientes/propostas/application/views/Adicionais/taxas_permitidas.php 20
+ERROR - 2014-06-11 14:59:14 --> Severity: Notice  --> Undefined variable: js /var/www/html/allink/Clientes/propostas/application/views/Adicionais/taxas_permitidas.php 20
+ERROR - 2014-06-11 17:10:53 --> Severity: Notice  --> Undefined variable: taxas_completas /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:10:53 --> Severity: Warning  --> array_key_exists() [<a href='function.array-key-exists'>function.array-key-exists</a>]: The second argument should be either an array or an object /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:10:53 --> Severity: Notice  --> Undefined variable: taxas_completas /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:10:53 --> Severity: Warning  --> array_key_exists() [<a href='function.array-key-exists'>function.array-key-exists</a>]: The second argument should be either an array or an object /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:10:53 --> Severity: Notice  --> Undefined variable: taxas_completas /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:10:53 --> Severity: Warning  --> array_key_exists() [<a href='function.array-key-exists'>function.array-key-exists</a>]: The second argument should be either an array or an object /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:10:53 --> Severity: Notice  --> Undefined variable: taxas_completas /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:10:53 --> Severity: Warning  --> array_key_exists() [<a href='function.array-key-exists'>function.array-key-exists</a>]: The second argument should be either an array or an object /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:10:53 --> Severity: Notice  --> Undefined variable: taxas_completas /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:10:53 --> Severity: Warning  --> array_key_exists() [<a href='function.array-key-exists'>function.array-key-exists</a>]: The second argument should be either an array or an object /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:12:06 --> Severity: Notice  --> Undefined variable: taxas_completas /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:12:06 --> Severity: Warning  --> array_key_exists() [<a href='function.array-key-exists'>function.array-key-exists</a>]: The second argument should be either an array or an object /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:12:06 --> Severity: Notice  --> Undefined variable: taxas_completas /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:12:06 --> Severity: Warning  --> array_key_exists() [<a href='function.array-key-exists'>function.array-key-exists</a>]: The second argument should be either an array or an object /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:12:06 --> Severity: Notice  --> Undefined variable: taxas_completas /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:12:06 --> Severity: Warning  --> array_key_exists() [<a href='function.array-key-exists'>function.array-key-exists</a>]: The second argument should be either an array or an object /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:12:06 --> Severity: Notice  --> Undefined variable: taxas_completas /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:12:06 --> Severity: Warning  --> array_key_exists() [<a href='function.array-key-exists'>function.array-key-exists</a>]: The second argument should be either an array or an object /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:12:06 --> Severity: Notice  --> Undefined variable: taxas_completas /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:12:06 --> Severity: Warning  --> array_key_exists() [<a href='function.array-key-exists'>function.array-key-exists</a>]: The second argument should be either an array or an object /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:18:45 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 153
+ERROR - 2014-06-11 17:18:48 --> Severity: Notice  --> Undefined variable: transit_dicharge_x_destination /var/www/html/allink/Clientes/propostas/application/models/Tarifario/breakdown.php 153
+ERROR - 2014-06-11 17:18:52 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-11 17:28:33 --> Severity: Notice  --> Undefined index:  importacao /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 129
+ERROR - 2014-06-11 17:48:52 --> Impossivel encontrar a taxa selecionada
+ERROR - 2014-06-11 17:49:30 --> Impossivel encontrar a taxa selecionada
+ERROR - 2014-06-11 17:50:21 --> Impossivel encontrar a taxa selecionada
+ERROR - 2014-06-11 17:50:48 --> Severity: Notice  --> Undefined variable: js /var/www/html/allink/Clientes/propostas/application/views/Adicionais/taxas_permitidas.php 20
+ERROR - 2014-06-11 17:51:25 --> Severity: Notice  --> Undefined variable: js /var/www/html/allink/Clientes/propostas/application/views/Adicionais/taxas_permitidas.php 20

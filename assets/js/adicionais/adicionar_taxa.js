@@ -1,7 +1,9 @@
 $(document).ready(function(){
 	
 	// Dicas de preenchimento da tela
-	$( document ).tooltip();
+        $( document ).tooltip({
+            position: { my: "left top+15", at: "left top-65", collision: "flipfit" }
+        });
 	
 	$("#valor").priceFormat({
 	    prefix: '',
@@ -74,18 +76,18 @@ $(document).ready(function(){
 			var label = "";
 																					
 			value = $("#id_taxa").val() + ";" + $("#unidade").val() + ";" +
-					$("#moeda").val() + ";" + modalidade + ";" +
-					$("#valor").val() + ";" + $("#valor_minimo").val() + ";" + 
-					$("#valor_maximo").val();
+                                $("#moeda").val() + ";" + modalidade + ";" +
+                                $("#valor").val() + ";" + $("#valor_minimo").val() + ";" + 
+                                $("#valor_maximo").val();
 									
-			label = $("#taxa").val() + " " + $("#moeda option:selected").text() + " " + 
-					$("#valor").val() + " " + $("#unidade option:selected").text() + " | MIN. " +
-					$("#valor_minimo").val() + " | MAX. " + $("#valor_maximo").val() + " " + 
-					modalidade;
+			label = $("#id_taxa option:selected").text() + " " + $("#moeda option:selected").text() + " " + 
+                                $("#valor").val() + " " + $("#unidade option:selected").text() + " | MIN. " +
+                                $("#valor_minimo").val() + " | MAX. " + $("#valor_maximo").val() + " " + 
+                                modalidade;
 			
 			if( $("#index_combo").val() != "" )
 			{
-				window.opener.document.getElementById("taxas_selecionadas").options[$("#index_combo").val()] = null;
+                            window.opener.document.getElementById("taxas_selecionadas").options[$("#index_combo").val()] = null;
 			}	
 			
 			window.opener.$("#taxas_selecionadas").append(new Option(label, value));

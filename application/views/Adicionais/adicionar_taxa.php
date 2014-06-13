@@ -16,8 +16,9 @@
 				</tr>								
 				<tr>
 					<td align="left" class="texto_pb" colspan="3">							
-						<input type="text" name="taxa" id="taxa" value="<?php echo $nome_taxa;?>" size="50" />
-						<input type="hidden" name="id_taxa" id="id_taxa" value="<?php echo $id_taxa;?>" />	
+                        <?php echo form_dropdown("id_taxa",$taxas,$id_taxa,"id='id_taxa'");?>
+						<!--<input type="text" name="taxa" id="taxa" value="<?php echo $nome_taxa;?>" size="50" />-->                        
+						<!--<input type="hidden" name="id_taxa" id="id_taxa" value="<?php echo $id_taxa;?>" />-->	
 						<img border="0" style="vertical-align: middle;" name="taxas_exportacao" id="taxas_exportacao" src="/icones/help.png" title="Clique para exibir quais são os padrões para às principais taxas de Exportação" />						
 					</td>																															      
 				</tr>

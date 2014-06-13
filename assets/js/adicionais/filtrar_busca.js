@@ -18,7 +18,9 @@ $(document).ready(function(){
 	$("div[id^='pesquisa_']").hide();
 	
 	// Dicas de preenchimento da tela
-	$( document ).tooltip();
+        $( document ).tooltip({
+            position: { my: "left top+15", at: "left top-65", collision: "flipfit" }
+        });
 	
 	$("#tipo_cliente_busca").change(function(){
 				

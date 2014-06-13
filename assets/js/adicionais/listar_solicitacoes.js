@@ -1,7 +1,9 @@
 $(function(){
 	 
 	 // Dicas de preenchimento da tela
-	 $( document ).tooltip();
+        $( document ).tooltip({
+            position: { my: "left top+15", at: "left top-65", collision: "flipfit" }
+        });
 	
 	 $( "#accordion" ).accordion({
 		 heightStyle: "content"

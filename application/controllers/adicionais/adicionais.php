@@ -142,7 +142,31 @@ class Adicionais extends CI_Controller{
 			$valor_minimo = number_format($dadosDaTaxaSelecionada[5],2,".","");
 			$valor_maximo = number_format($dadosDaTaxaSelecionada[6],2,".","");			
 		}	
+        
+        /** Busca às taxas disponiveis para adição na tela **/
+		$this->load->model("Taxas/taxa_model");
 		
+		$taxa_model = new Taxa_Model();
+		
+		$taxas_completas = $taxa_model->retornaTodasAsTaxas();
+		
+        /**
+         * Filtra às taxas permitidas de Exportação
+         */
+        include_once $_SERVER['DOCUMENT_ROOT'] . "/permissoes_taxas.php";
+        
+        $taxas_autorizadas = array();
+        
+        foreach( $controle_taxas['exportacao_adicionais'] as $taxa_permitida )
+        {
+            if(array_key_exists($taxa_permitida, $taxas_completas) )
+            {
+                $taxas_autorizadas[$taxa_permitida] = $taxas_completas[$taxa_permitida];
+            }    
+        }    
+                        
+        $data["taxas"] = $taxas_autorizadas;
+        
 		$data['id_taxa'] = $id_taxa;
 		$data['nome_taxa'] = $nome_taxa;
 		$data['unidade_selecionada'] = $unidade_selecionada;

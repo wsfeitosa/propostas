@@ -1,0 +1,118 @@
+1402523087TS---><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+		<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+		<META HTTP-EQUIV="EXPIRES" CONTENT="0">
+		<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" >
+		<title>Scoa - Propostas</title>
+		<link rel="stylesheet" href="/Estilos/geral.css" type="text/css" />
+		<link rel="stylesheet" href="/Libs/jquery-ui/css/redmond/jquery-ui-1.8.17.custom.css" type="text/css" />
+		<link rel="stylesheet" href="/Clientes/propostas/assets/js/sidr/stylesheets/jquery.sidr.light.css">
+		<style>
+		#progressbar .ui-progressbar-value {
+			background-color: #ccc;
+		}
+		</style>
+		<script language="javascript" src="/Libs/jquery-ui/js/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="/Libs/jquery-ui/js/jquery-ui-1.8.17.custom.min.js"></script>
+		<script language="javascript" src="/Libs/jquery/jquery-block-ui/jquery-block-ui.js"></script>
+		<script language="javascript" src="/Libs/JavaScript/replaceAll.js"></script>
+		<script type="text/javascript" src="/Clientes/propostas/assets/js/sidr/jquery.sidr.min.js"></script>
+		<script type="text/javascript" src="/Clientes/propostas/assets/js/menu-lateral.js"></script>
+		<style>
+		#pop{display:none;position:absolute;top:40%;left:38%;margin-left:-220px;margin-top:-220px;padding:10px;width:800px;height:600px;border:1px solid #d0d0d0; background-color:white;}
+		</style>
+				<script type="text/javascript" src="https://80.0.10.16/Clientes/propostas/assets/js/nova_proposta/nova_proposta.js"></script>
+	</head>
+	<body>
+		<div id="progressbar"></div>
+		<div id='corpo'>
+		<div id="sidr">		
+			<ul>
+				<!--<li><a href="#" id="booking">Booking</a></li>-->
+				<li><a href="#" id="consultar-booking">Consultar Booking</a></li>
+				<li><a href="#" id="routing-order">Routing Order</a></li>
+				<li><a href="#" id="consultar-routing-order">Consultar RO</a></li>
+				<li><a href="#" id="crm">CRM</a></li>
+				<li><a href="#" id="sair">Sair</a></li>
+			</ul>
+		</div>
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" align="left">
+			<tr>
+				<td class="titulo_tabela" width="10">
+					<img alt="img1" src="/Imagens/pixel.gif" width="10" height="1" border="0">
+				</td>
+				<td class="header1" nowrap>
+					NOVA PROPOSTA					<img alt="img2" src="/Imagens/pixel.gif" width="10" height="1" border="0">
+				</td>
+				<td>
+					<img alt="img3" src="/Imagens/formtab_r.gif" width="10" height="21" border="0">
+				</td>
+					<td class="linha_t" width="100%">&nbsp;</td>
+					<td class="linha_t">
+					<img alt="img4" src="/Imagens/pixel.gif" width="10" height="8" border="0">
+				</td>
+			</tr>
+			<tr>
+			<td colspan="5"><table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" class="tabela_azul">
+	<tr>
+		<td>                    
+			<br>				
+			<form action="https://80.0.10.16/Clientes/propostas/index.php/propostas/propostas/nova_proposta" method="post" accept-charset="iso-8859-1" id="nova" name="nova">			<table cellpadding="1" cellspacing="1" width="97%" border="0" align="center" class="tabela_padrao">
+				<div id="pop">
+					<a href="#" onclick="document.getElementById('frame').src = '/Clientes/propostas/index.php/loading/'; document.getElementById('pop').style.display='none';">[Fechar]</a>											
+					<iframe id="frame" name="frame" src="/Clientes/propostas/index.php/loading/" frameborder="0" width="100%" height="95%" src="#"></iframe>
+				</div>                         
+				<tr>
+					<td colspan="1" id="label_tipop" width="33%">
+						Selecione o Tipo de Proposta:
+					</td>
+					<td colspan="1" id="label_sentido" width="33%">
+						Sentido:
+					</td>
+					<td colspan="1" id="label_sentido" width="33%">
+						Enviar:
+					</td>										                                                   
+				</tr>					
+				<tr>
+					<td class="texto_pb" colspan="1">							
+						<select name="tipo_proposta" id='tipo_proposta'>
+<option value="0">Selecione</option>
+<option value="Proposta_Cotacao">Proposta Cotação</option>
+<option value="Proposta_Tarifario">Proposta Tarifario</option>
+<option value="Proposta_Spot">Proposta Spot</option>
+<option value="Proposta_NAC">Proposta NAC</option>
+</select>							
+					</td>
+					<td class="texto_pb" colspan="1">							
+						<select name="sentido" id='sentido'>
+<option value="0">Selecione</option>
+<option value="IMP">Importação</option>
+<option value="EXP">Exportação</option>
+</select>							
+					</td>
+					<td class="texto_pb" colspan="1">							
+						<input type="button" name="criar" id="criar" value="Criar" />							
+					</td>																      
+				</tr>									                                                                                     
+			</table>                        
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#FFFFFF">&nbsp;</td>
+	</tr>			    
+</table>
+	  </td>
+	    </tr>
+	    <tr>
+	        <td width="10" class="formtab_b">&nbsp;</td>
+	        <td class="barra_menu" colspan="5" align="right">  
+	        	<img align="left" name="simple-menu" id="simple-menu" width="24px" height="24px" border="0" alt="" title="Exibe as opÃ§Ãµes do menu" src="/icones/switchuser.png"></img>         
+	            	        </td>
+	    </tr>      
+	</table>
+   </form>
+  </div>
+ </body>
+</html>

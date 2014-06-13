@@ -88,7 +88,7 @@ class Taxas_Locais extends CI_Controller{
 		
 	}
 	
-	public function add( $js_file )
+	public function add( $js_file, $sentido = NULL, $tipo = NULL )
 	{
 		
 		$header['form_title'] = 'Scoa - Adicionar Taxa';
@@ -105,8 +105,49 @@ class Taxas_Locais extends CI_Controller{
 		$this->load->model("Taxas/taxa_model");
 		
 		$taxa_model = new Taxa_Model();
-		
-		$data["taxas"] = $taxa_model->retornaTodasAsTaxas();
+		    
+        /**
+         * Filtra às taxas permitidas de Exportação
+         */                
+        $taxas_autorizadas = array();
+        
+        if( ! is_null($sentido) && ! is_null($tipo) )
+        {
+            include_once $_SERVER['DOCUMENT_ROOT'] . "/permissoes_taxas.php";
+            
+            if( $sentido == "EXP" )
+            {
+                $sentido_selecionado = "exportacao_".$tipo;
+            }
+            else
+            {
+                $sentido_selecionado = "importacao_".$tipo;
+            }
+                        
+            $taxas_completas = $taxa_model->retornaTodasAsTaxas();
+            
+            if( count($controle_taxas[$sentido_selecionado]) > 0 )
+            {            
+                foreach( $controle_taxas[$sentido_selecionado] as $taxa_permitida )
+                {
+                    if(array_key_exists($taxa_permitida, $taxas_completas) )
+                    {
+                        $taxas_autorizadas[$taxa_permitida] = $taxas_completas[$taxa_permitida];
+                    }    
+                }
+                
+                $data["taxas"] = $taxas_autorizadas;
+            }
+            else
+            {
+                $data["taxas"] = $taxas_completas;
+            }    
+                                   
+        } 
+        else
+        {
+            $data["taxas"] = $taxa_model->retornaTodasAsTaxas();
+        }    
 						
 		/** Busca às unidades de cobrança **/
 		$this->load->model("Taxas/unidade_model");

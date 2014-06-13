@@ -1,6 +1,6 @@
 $(function(){
-	
-	$('#simple-menu').sidr();
+    
+    $('#simple-menu').sidr();
 
     $("#booking").click(function(){
         var url = "/Exportacao/booking.php";

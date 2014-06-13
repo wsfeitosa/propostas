@@ -9,7 +9,8 @@ class Altera_Propostas extends CI_Model {
 	}
 	
 	public function AlterarPropostasRetroativas()
-	{
+	{   
+        //pr($this->router->method);
 		/** 
 		 * Esta classe e função são chamadas via logic hook, e alteram às propostas ativas que serão influencidas por este acordo
 		 */

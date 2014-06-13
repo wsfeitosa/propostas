@@ -1,7 +1,9 @@
 $(document).ready(function(){
 	
 	// Dicas de preenchimento da tela
-	$( document ).tooltip();
+        $( document ).tooltip({
+            position: { my: "left top+15", at: "left top-65", collision: "flipfit" }
+        });
 	
 	$("#novo").click(function(){
 		window.location = '/Clientes/propostas/index.php/adicionais/adicionais/novo/';
