@@ -339,15 +339,16 @@ class Adicionais extends CI_Controller{
 		);
 		
 		$data['status'] = Array(
-								"0" => "Vencida",
-								"1" => "Valida",
-								"2" => "Pendente Aprovação",
-                                "3" => "Cancelada",
+                                "0" => "Selecione",
+								"1" => "Vencida",
+								"2" => "Valida",
+								"3" => "Pendente Aprovação",
+                                "4" => "Cancelada",
 		);
 		
 		$data['filiais'] = Array(
 								 "0" => "Selecione",
-								 "SP" => "SÃ£o Paulo",
+								 "SP" => "São Paulo",
 								 "CT" => "Curitiba",
 								 "IT" => "Itajai",
 								 "PA" => "Porto Alegre",

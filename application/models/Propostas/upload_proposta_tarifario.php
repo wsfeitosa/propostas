@@ -70,7 +70,7 @@ class Upload_Proposta_Tarifario extends CI_Model {
 		$solicitacoes_validade = Array();
 		
 		for($i=2;$i <= @$linhas; $i++)
-		{
+		{            
 			$id_taxa = (int)$data->sheets[0]['cells'][$i][1];
 			$id_item = (int)$data->sheets[0]['cells'][$i][2];
 			$sentido = (string)$data->sheets[0]['cells'][$i][3];

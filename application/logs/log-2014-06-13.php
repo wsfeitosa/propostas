@@ -28,3 +28,17 @@ ERROR - 2014-06-13 11:31:04 --> Severity: Notice  --> Undefined variable: dadosA
 ERROR - 2014-06-13 11:37:16 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
 ERROR - 2014-06-13 11:37:43 --> Severity: Notice  --> Undefined variable: existeAcordo /var/www/html/allink/Clientes/propostas/application/controllers/adicionais/adicionais.php 379
 ERROR - 2014-06-13 11:38:13 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-13 14:17:27 --> Query error: Unknown column 'acordos_adicionais.ativo' in 'where clause'
+ERROR - 2014-06-13 14:18:16 --> Query error: Unknown column 'acordos_adicionais.ativo' in 'where clause'
+ERROR - 2014-06-13 14:20:34 --> Severity: Notice  --> Undefined variable: js /var/www/html/allink/Clientes/propostas/application/views/Adicionais/taxas_permitidas.php 20
+ERROR - 2014-06-13 15:30:41 --> Severity: Notice  --> Undefined variable: existeAcordo /var/www/html/allink/Clientes/propostas/application/controllers/adicionais/adicionais.php 381
+ERROR - 2014-06-13 15:31:19 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-13 15:31:19 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-13 15:31:19 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-13 15:31:19 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-13 15:31:19 --> Severity: Notice  --> Undefined offset:  3 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-13 15:31:19 --> Severity: Notice  --> Undefined offset:  2 /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/agrupa_valores.php 20
+ERROR - 2014-06-13 15:31:19 --> Severity: Notice  --> Undefined variable: novaTaxa /var/www/html/allink/Clientes/propostas/application/models/Adicionais/adicionais_facade.php 233
+ERROR - 2014-06-13 15:31:19 --> Severity: Notice  --> Undefined variable: dadosAprovacao /var/www/html/allink/Clientes/propostas/application/models/Adicionais/Desbloqueios/solicitacao_desbloqueio.php 291
+ERROR - 2014-06-13 15:33:35 --> Severity: Notice  --> Undefined variable: js /var/www/html/allink/Clientes/propostas/application/views/Adicionais/taxas_permitidas.php 20
+ERROR - 2014-06-13 15:34:35 --> Severity: Notice  --> Undefined variable: js /var/www/html/allink/Clientes/propostas/application/views/Adicionais/taxas_permitidas.php 20

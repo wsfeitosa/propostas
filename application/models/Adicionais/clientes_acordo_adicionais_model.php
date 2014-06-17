@@ -90,9 +90,9 @@ class Clientes_Acordo_Adicionais_model extends CI_Model{
 		select("*")->
 		from("CLIENTES.clientes_x_acordo_adicionais")->
 		where("id_acordo_adicionais",$acordo->getId());
-	
+        
 		$rowSetClientes = $this->db->get();
-	
+        
 		if( $rowSetClientes->num_rows() < 1 )
 		{
 			throw new RuntimeException("Os clientes do acordo não puderam ser encontrados!");

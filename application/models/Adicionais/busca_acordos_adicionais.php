@@ -10,14 +10,18 @@ class Busca_Acordos_Adicionais extends CI_Model {
 	public function aplicarFiltrosDeBusca()
 	{		
 		$this->load->model("Adicionais/clientes_acordo_adicionais_model");
+        $this->load->model("Adicionais/taxas_acordo_adicionais_model");
 		$this->load->model("Adicionais/acordo_adicionais");
+        $this->load->model("Adicionais/serializa_taxa");
 		
 		$quantidadeDeFiltros = 0;
 		$acordosEncontrados = array();
 		$clientesAcordoModel = new Clientes_Acordo_Adicionais_model();
+        $taxas_model = new Taxas_Acordo_Adicionais_Model();
+        $serializadorDeTaxas = new Serializa_Taxa();
 		
 		$this->db->
-				select("acordo_adicionais.id, acordo_adicionais.numero_acordo, inicio, validade")->
+				select("acordo_adicionais.id, acordo_adicionais.numero_acordo, inicio, validade, aprovacao_pendente")->
 				from("CLIENTES.acordo_adicionais")->
 				join("CLIENTES.clientes_x_acordo_adicionais","acordo_adicionais.id = clientes_x_acordo_adicionais.id_acordo_adicionais")->
 				join("CLIENTES.clientes", "clientes.id_cliente = clientes_x_acordo_adicionais.id_cliente");		
@@ -108,17 +112,31 @@ class Busca_Acordos_Adicionais extends CI_Model {
 		
 		if( ! empty($_REQUEST['status']) )
 		{
-			
-			if( $this->input->post('status') == '1' )
-			{
-				$ativo = "S";	
-			}
-			else 
-			{
-				$ativo = "N";
-			}		
-			
-			$this->db->where("acordo_adicionais.ativo",$ativo);		
+			switch ($_REQUEST['status']) 
+            {
+                case 1:
+                    $this->db->where("acordo_adicionais.validade <",date('Y-m-d'));
+                break;
+                    $this->db->where("acordo_adicionais.validade >=",date('Y-m-d'));
+                case 2:
+                    $this->db->join("CLIENTES.desbloqueios_adicionais", "desbloqueios_adicionais.id_acordo = acordo_adicionais.id");
+                    $this->db->where("desbloqueios_adicionais.status",  strtoupper("aprovado"));
+                    $this->db->where("acordo_adicionais.ativo", "S");
+                    $this->db->where("acordo_adicionais.validade >=",date('Y-m-d'));
+                break;
+            
+                case 3:
+                    $this->db->where("acordo_adicionais.aprovacao_pendente", "S");                    
+                break;
+            
+                case 4:
+                    $this->db->where("acordo_adicionais.ativo", "N");
+                break;
+
+                default:
+                    break;
+            }						
+					
 			$quantidadeDeFiltros += 1;
 		}	
 		
@@ -138,6 +156,8 @@ class Busca_Acordos_Adicionais extends CI_Model {
 				//Busca os cliente do acordo encontrado
 				$acordo = new Acordo_Adicionais();
 				$acordo->setId((int)$acordoEncontrado->id);
+                
+                $aprovacaoPendente = "";
 
 				$clientesAcordoModel->buscaClientesDoAcordoDeAdicionais($acordo);
 				$stringDeClientesFormatados = "";
@@ -146,13 +166,32 @@ class Busca_Acordos_Adicionais extends CI_Model {
 				{
 					$stringDeClientesFormatados .= $cliente->getCNPJ() . " - " . $cliente->getRazao() . " -> " . $cliente->getCidade()->getNome() . "<br />";
 				}	
-				
+                
+                $stringdeTaxasFormatadas = "";
+                $taxas_model->buscaTaxasDoAcordoDeAdicionais($acordo);
+                
+                foreach($acordo->getTaxas() as $taxa) 
+                {
+                    $stringdeTaxasFormatadas .= $serializadorDeTaxas->ConverterTaxaParaString($taxa)."<br />";
+                }
+                
+                if($acordoEncontrado->aprovacao_pendente == "S")
+                {
+                    $aprovacaoPendente = "Sim";
+                }    
+                else 
+                {
+                    $aprovacaoPendente = "Não";
+                }
+                
 				$resultadoBusca = array(
 										"id_acordo" => $acordoEncontrado->id,
 										"numero_acordo" => $acordoEncontrado->numero_acordo,
 										"clientes" => $stringDeClientesFormatados,
 										"data_inicial" => new DateTime($acordoEncontrado->inicio),
 										"data_final" => new DateTime($acordoEncontrado->validade),
+                                        "aprovacao_pendente" => $aprovacaoPendente,
+                                        "taxas_acordo" => $stringdeTaxasFormatadas,
 				);
 				
 				$acordosEncontrados[] = $resultadoBusca;				

@@ -10,16 +10,22 @@
 					<iframe id="frame" name="frame" src="/Clientes/propostas/index.php/loading/" frameborder="0" width="100%" height="95%" src="#"></iframe>
 				</div>                         
 				<tr>
-					<td class="titulo_tabela" width="15%">
+					<td class="titulo_tabela">
 						Número:
 					</td>
-					<td class="titulo_tabela" width="45%" >
+					<td class="titulo_tabela">
 						Cliente(s):
-					</td>					
-					<td class="titulo_tabela" width="20%">
+					</td>	
+                    <td class="titulo_tabela">
+                        Taxas:
+                    </td>
+                    <td class="titulo_tabela">
+                        Aprovação Pendente:
+                    </td>
+					<td class="titulo_tabela">
 						Data de inicio:
 					</td>
-					<td class="titulo_tabela" width="20%">
+					<td class="titulo_tabela">
 						Validade:
 					</td>															                                                   
 				</tr>
@@ -33,6 +39,16 @@
 					<td align="center"class="texto_pb">		
 						<a href="#" id_acordo="<?php echo $acordo['id_acordo'];?>">						
 						<?php echo $acordo['clientes'];?>
+                        </a> 
+					</td>
+                    <td align="center" class="texto_pb">							
+						<a href="#" id_acordo="<?php echo $acordo['id_acordo'];?>">						
+						<?php echo $acordo['taxas_acordo'];?>
+                        </a> 
+					</td>
+                    <td align="center" class="texto_pb">							
+						<a href="#" id_acordo="<?php echo $acordo['id_acordo'];?>">						
+						<?php echo $acordo['aprovacao_pendente'];?>
                         </a> 
 					</td>
 					<td align="center" class="texto_pb">							
