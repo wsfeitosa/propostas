@@ -260,7 +260,7 @@ class Solicitacao_Desbloqueio extends CI_Model {
 		$assuntoEmail = "Solicitação de desbloqueio de acordo de adicionais: " . $this->acordo->getNumeroAcordo() . " - " . $clienteAssunto[0]->getRazao();
 		
 		//FIXME Descomentar esta linha para enviar às mensagens
-		//$enviado = $this->envio->enviarMensagem($mensagem, $assuntoEmail);
+		$enviado = $this->envio->enviarMensagem($mensagem, $assuntoEmail);
 		
 		$enviado = true;
 		
@@ -367,7 +367,7 @@ class Solicitacao_Desbloqueio extends CI_Model {
 		$assuntoEmail = $acao."Resposta da solicitação de desbloqueio de acordo de adicionais: " . $this->acordo->getNumeroAcordo() . " - " . $clienteAssunto[0]->getRazao();
 		
 		//FIXME Descomentar esta linha para enviar às mensagens
-		//$enviado = $this->envio->enviarMensagem($mensagem, $assuntoEmail);
+		$enviado = $this->envio->enviarMensagem($mensagem, $assuntoEmail);
 		
 		$enviado = true;
 		

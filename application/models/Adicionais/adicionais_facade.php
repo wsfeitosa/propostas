@@ -341,6 +341,46 @@ class Adicionais_Facade extends CI_Model{
         $solicitacaoDesbloqueio->getAcordo()->setValidade($acordo->getValidade());        
         
         $solicitacaoDesbloqueio->enviarAprovacao(TRUE);        
-    }    
+    }   
+    
+    public function revalidarAcordo(Acordo_Adicionais $acordo, $meses = NULL)
+    {
+        $this->load->model("Adicionais/Desbloqueios/solicitacao_desbloqueio");
+		                        
+        switch($meses)
+        {
+            case 0:
+                $this->db->where("id",$acordo->getId());
+                $this->db->update("CLIENTES.acordo_adicionais", Array("avisar_vencimento"=>"N"));
+            break;
+        
+            case 12:
+                $fimDoAno = new DateTime(date('Y')."-12-31");
+                $acordo->setValidade($fimDoAno);
+            break;
+        
+            default :
+                $acordo->getValidade()->modify("+{$meses} Months");
+        }
+        
+        if( $meses !== 0 )
+        {
+            $this->load->model("Usuarios/usuario");
+            
+            $solicitante = new Usuario();
+			$solicitante->setId((int)$_SESSION['matriz'][7]);
+            
+            /** Verifica se o item da proposta está dentro da validade **/            
+            $solicitacao = new Solicitacao_Desbloqueio();
+            
+            $solicitacao->setDataSolicitacao(new DateTime());
+            $solicitacao->setAcordo($acordo);
+            $solicitacao->setSolicitante($solicitante);  
+            $solicitacao->setAlterarRetroativos("N");
+                        
+            $solicitacao->enviarSolicitacao();
+        }    
+               
+    }
 	
 }

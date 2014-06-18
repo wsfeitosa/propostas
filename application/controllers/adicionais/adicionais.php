@@ -505,5 +505,28 @@ class Adicionais extends CI_Controller{
 
 		$this->load->view("Adicionais/taxas_permitidas",array("taxas" => $taxasExpo));
 	}
+    
+    public function revalidar($id_acordo = NULL, $meses = NULL)
+    {
+        if( empty($id_acordo) || is_null($meses) )
+        {
+            die("Não foi possivel processar o envio da solicitação");
+        }    
+        
+        /** Carrega a classe que vai salvar o acordo **/
+		$this->load->model("Adicionais/adicionais_facade");
+        		        
+		$facade = new Adicionais_Facade();
+		
+		$acordo = $facade->consultarAcordo($id_acordo);
+        $acordo->alterar_retroativos = "N";      
+        
+        $facade->revalidarAcordo($acordo, $meses);
+                		
+		echo "<script language='javascript'>
+				alert('Operação efetuada com sucesso!');
+				window.close();		
+			  </script>";
+    }
 	
 }
