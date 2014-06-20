@@ -175,10 +175,10 @@ class Solicitacao_Desbloqueio extends CI_Model {
 							"data_aprovacao" => $this->data_desbloqueio->format('Y-m-d H:i:s'),
 							"alterar_retroativos" => $this->alterar_retroativos
 		);
-		
+        
 		$this->db->where("id",$this->id);
 		$this->db->update("CLIENTES.desbloqueios_adicionais",$solicitacao);
-
+                
 		return $this;
 	}
 	
@@ -260,7 +260,7 @@ class Solicitacao_Desbloqueio extends CI_Model {
 		$assuntoEmail = "Solicitação de desbloqueio de acordo de adicionais: " . $this->acordo->getNumeroAcordo() . " - " . $clienteAssunto[0]->getRazao();
 		
 		//FIXME Descomentar esta linha para enviar às mensagens
-		$enviado = $this->envio->enviarMensagem($mensagem, $assuntoEmail);
+		//$enviado = $this->envio->enviarMensagem($mensagem, $assuntoEmail);
 		
 		$enviado = true;
 		
@@ -361,13 +361,24 @@ class Solicitacao_Desbloqueio extends CI_Model {
 			}
 				
 		}
-		
+		                
+        $this->load->model("Adicionais/altera_propostas");
+                        
+        /**
+         * Alterar retroativamente às propostas com o valores aprovados do acordo,
+         * se a variavel alterar_retroativos estiver definida como S
+         */
+        if($this->acordo->alterar_retroativos == "S")
+        {            
+            $this->altera_propostas->AlterarPropostasRetroativas($this->acordo->getId());
+        }
+        
 		$clienteAssunto = $this->acordo->getClientes();
 		                
 		$assuntoEmail = $acao."Resposta da solicitação de desbloqueio de acordo de adicionais: " . $this->acordo->getNumeroAcordo() . " - " . $clienteAssunto[0]->getRazao();
 		
 		//FIXME Descomentar esta linha para enviar às mensagens
-		$enviado = $this->envio->enviarMensagem($mensagem, $assuntoEmail);
+		//$enviado = $this->envio->enviarMensagem($mensagem, $assuntoEmail);
 		
 		$enviado = true;
 		

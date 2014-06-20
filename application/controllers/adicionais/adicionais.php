@@ -418,9 +418,7 @@ class Adicionais extends CI_Controller{
 	public function autorizar_desbloqueio()
 	{		
 		$this->load->model("Adicionais/adicionais_facade");
-		
-		//$this->adicionais_facade->responderSolicitacao($this->input->post());
-		
+				
 		try {		
 			$this->adicionais_facade->responderSolicitacao($this->input->post());		
 			

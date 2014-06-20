@@ -138,9 +138,26 @@ class Proposta_Model extends CI_Model {
             
             $tarifario = $factory->CreateTarifarioObject($concrete_factory);
             $tarifario->setId((int)$item['id_tarifario']);
+            
+            /**
+             * Verifica se é um objeto datetime valido, este trecho estava ocasionando um erro de
+             * segmentation falt no módulo apache do PHP.
+             */
+            $dataDeInicioDoItem = new DateTime($item['inicio']);
+            $dataDeValidadeDoItem = new DateTime($item['validade']);
+            
+            if( ! $dataDeInicioDoItem instanceof DateTime )
+            {
+                $dataDeInicioDoItem = new DateTime();
+            }
+            
+            if( ! $dataDeValidadeDoItem instanceof DateTime )
+            {
+                $dataDeValidadeDoItem = new DateTime(date('Y-m-t'));
+            }    
 
             /** Carrega às informações do tarifário selecionado na proposta **/
-            $tarifario_model->findById($tarifario,"A",new DateTime($item['inicio']),new DateTime($item['validade']));
+            $tarifario_model->findById($tarifario,"A",$dataDeInicioDoItem,$dataDeValidadeDoItem);
             
             /** 
              * Remove às taxas padrões trazidas pelo model do tarifário,
@@ -568,10 +585,27 @@ class Proposta_Model extends CI_Model {
             
             $tarifario = $concrete_factory->CreateTarifarioObject($factory);
             $tarifario->setId((int)$item['id_tarifario']);
-                        
+            
+            /**
+             * Verifica se é um objeto datetime valido, este trecho estava ocasionando um erro de
+             * segmentation falt no módulo apache do PHP.
+             */
+            $dataDeInicioDoItem = new DateTime($item['inicio']);
+            $dataDeValidadeDoItem = new DateTime($item['validade']);
+            
+            if( ! $dataDeInicioDoItem instanceof DateTime )
+            {
+                $dataDeInicioDoItem = new DateTime();
+            }
+            
+            if( ! $dataDeValidadeDoItem instanceof DateTime )
+            {
+                $dataDeValidadeDoItem = new DateTime(date('Y-m-t'));
+            }    
+
             /** Carrega às informações do tarifário selecionado na proposta **/
-            $tarifario_model->findById($tarifario,"A",new DateTime($item['inicio']), new DateTime($item['validade']));
-                        
+            $tarifario_model->findById($tarifario,"A",$dataDeInicioDoItem,$dataDeValidadeDoItem);
+                                              
             /** 
              * Remove às taxas padrões trazidas pelo model do tarifário,
              * para preencher com os dados da taxas informadas na proposta  
