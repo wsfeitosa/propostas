@@ -27,9 +27,7 @@ $(document).ready(function(){
 		var valor = $("#valor").val();
 		var valor_minimo = $("#valor_minimo").val();
 		var valor_maximo = $("#valor_maximo").val();
-		
-		alert(modalidade);
-		
+						
 		var value = id_taxa + ";" + nome_taxa + ";" + valor + ";" +
 		valor_minimo + ";" + valor_maximo + ";" +
 		id_moeda + ";" + moeda + ";" + id_unidade + ";" + unidade + ";" + modalidade;

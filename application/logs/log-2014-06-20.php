@@ -157,3 +157,39 @@ ERROR - 2014-06-20 10:41:00 --> Severity: Notice  --> Undefined variable: type /
 ERROR - 2014-06-20 10:41:16 --> Severity: Notice  --> Undefined variable: labels_frete_adicionais /var/www/html/allink/Clientes/propostas/application/controllers/propostas/itens_propostas.php 48
 ERROR - 2014-06-20 10:41:17 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
 ERROR - 2014-06-20 10:41:17 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:24:51 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:24:51 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:24:51 --> Query error: Column 'numero_acordo' cannot be null
+ERROR - 2014-06-20 15:25:53 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:25:53 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:26:41 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:26:41 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:29:31 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:29:31 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:30:48 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:30:48 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:35:58 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:35:58 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:36:55 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:36:55 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:49:50 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:49:50 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:50:13 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:50:13 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:50:37 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:50:37 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 15:56:23 --> 404 Page Not Found --> taxas_locais/pesquisar_logs
+ERROR - 2014-06-20 16:01:27 --> Query error: Unknown column 'log_propostas.numero_acordo' in 'where clause'
+ERROR - 2014-06-20 16:01:47 --> Severity: Notice  --> Undefined property: stdClass::$id_log /var/www/html/allink/Clientes/propostas/application/views/Logs/selecionar_log_taxas_locais.php 31
+ERROR - 2014-06-20 16:01:47 --> Severity: Notice  --> Undefined property: stdClass::$id_log /var/www/html/allink/Clientes/propostas/application/views/Logs/selecionar_log_taxas_locais.php 31
+ERROR - 2014-06-20 16:01:53 --> 404 Page Not Found --> taxas_locais/exibir_historico
+ERROR - 2014-06-20 16:05:44 --> Severity: Warning  --> Missing argument 1 for Taxas_Locais::exibir_historico() /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 487
+ERROR - 2014-06-20 16:05:44 --> Severity: Notice  --> Undefined variable: id_log /var/www/html/allink/Clientes/propostas/application/controllers/taxas_locais/taxas_locais.php 496
+ERROR - 2014-06-20 16:07:50 --> Severity: Notice  --> Undefined property: stdClass::$id_log /var/www/html/allink/Clientes/propostas/application/views/Logs/selecionar_log_taxas_locais.php 32
+ERROR - 2014-06-20 16:07:50 --> Severity: Notice  --> Undefined property: stdClass::$id_log /var/www/html/allink/Clientes/propostas/application/views/Logs/selecionar_log_taxas_locais.php 32
+ERROR - 2014-06-20 16:19:40 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 16:19:40 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 16:31:10 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 16:31:10 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 17:24:48 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22
+ERROR - 2014-06-20 17:25:05 --> Severity: Notice  --> Undefined variable: acessos_filiais /var/www/html/allink/Clientes/propostas/application/models/Desbloqueios/solicitacao_taxa.php 22

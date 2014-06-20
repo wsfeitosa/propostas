@@ -27,8 +27,10 @@ class Acordo_Taxas_Entity implements Entity {
 	protected $usuario_alteracao;
 	protected $data_alteracao;
 	protected $registro_ativo;
-	
-	public function __construct() 
+    protected $memento = NULL;
+
+
+    public function __construct() 
 	{
 		
 	}
@@ -187,6 +189,56 @@ class Acordo_Taxas_Entity implements Entity {
         return $this;
     }
 
-
+    public function CreateMemento()
+    {
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Taxas_Locais_Acordadas/Memento/memento.php";
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Clientes/cliente_model.php";
+    	
+    	$cliente_model = new Cliente_Model();
+    	
+    	foreach( $this->getClientes() as $cliente )
+    	{
+    		$cliente_model->findById($cliente);
+    	}	
+                        
+        $acordoMemento = clone $this;
+               
+        $acordoMemento->inicio = $this->getInicio()->format('Y-m-d');
+        $acordoMemento->validade = $this->getValidade()->format('Y-m-d');
+        
+    	$memento = new Memento(serialize($acordoMemento),$acordoMemento->getNumero());
+    	        
+    	return $memento;
+    }
+    
+    /**     
+     * @param Memento $memento
+     * Restaura a proposta a um estado anterior
+     */
+    
+    public function SetMemento(Memento $memento)
+    {    	
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Taxas_Locais_Acordadas/Memento/memento.php";
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Taxas_Locais_Acordadas/Interfaces/Entity.php";
+        include_once "/var/www/html/allink/Clientes/propostas/application/models/Taxas_Locais_Acordadas/Interfaces/database_operations.php";
+        include_once "/var/www/html/allink/Clientes/propostas/application/models/Tarifario/porto.php";        
+        include_once "/var/www/html/allink/Clientes/propostas/application/models/Usuarios/usuario.php";        
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Clientes/cliente.php";
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Clientes/agente.php";
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Clientes/cidade.php";
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Email/email.php";    	
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Taxas/taxa_adicional.php";
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Taxas/taxa_local.php";
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Taxas/moeda.php";
+    	include_once "/var/www/html/allink/Clientes/propostas/application/models/Taxas/unidade.php";
+    	    	    	
+    	$acordo = unserialize($memento->getState());
+    	
+        $acordo->inicio = new DateTime($acordo->inicio);
+        
+        $acordo->validade = new DateTime($acordo->validade);
+        
+    	return $acordo; 
+    }
 	
 }//END CLASS

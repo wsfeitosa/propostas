@@ -47,9 +47,19 @@ $(document).ready(function(){
     
     /** Adiciona uma taxa no acordo **/
     $("#incluir_taxa").click(function(){
-    	document.getElementById("frame").src = "/Clientes/propostas/index.php/taxas_locais/taxas_locais/add/acordos_taxas_add.js";
+        
+        if($("#sentido").val() == "0" )
+        {
+            alert("Selecione um sentido (IMP ou EXP).");
+            return;
+        }
+        else
+        {
+            document.getElementById("frame").src = "/Clientes/propostas/index.php/taxas_locais/taxas_locais/add/acordos_taxas_add.js/" + $("#sentido").val() + "/locais";
 
-        $("#pop").show("slow");
+            $("#pop").show("slow");
+        }    
+        
     });
     
     /** Solicita a alteração de uma taxa local **/

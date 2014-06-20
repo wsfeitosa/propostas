@@ -416,5 +416,108 @@ class Taxas_Locais extends CI_Controller{
 				window.close();		
 			  </script>";
     }    
-	
+    
+    public function pesquisar_log()
+    {
+    	$header['form_title'] = 'Scoa - Log Acordo Taxas Locais';
+    	$header['css'] = '';
+    	
+    	$imagens = "";    	
+    	$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/localizar.gif', 'id' => 'localizar' , 'border' => 0)).'</a>';
+    	$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/voltar.gif', 'id' => 'voltar' , 'border' => 0)).'</a>';
+    	
+    	$footer['footer'] = $imagens;
+    	
+    	$header['form_name'] = "Pesquisar Log";
+    	$header['js'] = load_js(array('logs/pesquisar_log_taxas_locais.js'));
+
+    	$data['tipos_consultas'] = Array("numero"=>"Numero Acordo");
+    	
+    	$this->load->view("Padrao/header_view",$header);
+    	$this->load->view("Logs/pesquisar_logs_taxas_locais",$data);
+    	$this->load->view("Padrao/footer_view",$footer);
+    }
+    
+    public function encontrar_logs()
+    {    	
+    	/** Pesquisa pelos logs encontrados baseado no número **/	
+    	$rs = $this->db->
+    					select("log_acordo_taxas_locais.*")->
+    					from("CLIENTES.log_acordo_taxas_locais")->
+    					like("log_acordo_taxas_locais.numero_acordo",$this->input->post('numero'));
+    	
+    	if( $this->input->post('numero') == null )
+    	{
+    		$this->db->limit("50");
+    	}	
+    	
+    	$rs = $this->db->get();
+    	
+    	$linhas = $rs->num_rows();
+    	    	    	
+    	if( $linhas < 0 )
+    	{
+    		echo "<script language='javascript'>
+    			   alert('Nenhum Log encontrado!');    	
+    			   window.location = '/Clientes/propostas/index.php/taxas_locais/taxas_locais/pesquisar_log_taxas_locais/';			   	
+    			   </script>";
+    		exit;    				
+    	}	
+    	
+    	$header['form_title'] = 'Scoa - Log Taxas Locais';
+    	$header['css'] = '';
+    	 
+    	$imagens = "";
+    	$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/localizar.gif', 'id' => 'localizar' , 'border' => 0)).'</a>';
+    	$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/voltar.gif', 'id' => 'voltar' , 'border' => 0)).'</a>';
+    	 
+    	$footer['footer'] = $imagens;
+    	 
+    	$header['form_name'] = "Pesquisar Log";
+    	$header['js'] = load_js(array('logs/selecionar_log_taxas_locais.js'));
+    	
+    	$data['logs'] = $rs->result();
+    	 
+    	$this->load->view("Padrao/header_view",$header);
+    	$this->load->view("Logs/selecionar_log_taxas_locais",$data);
+    	$this->load->view("Padrao/footer_view",$footer);    	
+    	
+    }
+    
+    public function exibir_historico($id_log)
+    {
+        $this->load->model("Taxas_Locais_Acordadas/acordo_taxas_entity");
+        $this->load->model("Taxas_Locais_Acordadas/Memento/care_taker");
+        $this->load->library("formata_taxa");
+        
+        $careTaker = new Care_Taker();
+        
+        $acordo = new Acordo_Taxas_Entity();
+        
+        $memento = $careTaker->LoadState($id_log);
+        
+        $acordo_log = $acordo->SetMemento($memento);
+                        
+        $header['form_title'] = 'Scoa - Taxas Locais';
+		$header['form_name'] = 'ACORDO TAXAS LOCAIS';
+		$header['css'] = '';
+		$header['js'] = load_js(array('taxas/view.js'));
+		
+		$imagens = "";
+        /**
+		$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/novo.jpg', 'id' => 'novo' , 'border' => 0)).'</a>';
+		$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/alterar.gif', 'id' => 'alterar' , 'border' => 0)).'</a>';
+		$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/localizar.gif', 'id' => 'localizar' , 'border' => 0)).'</a>';
+		$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/voltar.gif', 'id' => 'voltar' , 'border' => 0)).'</a>';
+		**/
+		$footer['footer'] = $imagens;
+        
+        $data['acordo'] = $acordo_log;
+			
+		$this->load->view("Padrao/header_view",$header);
+		$this->load->view("Taxas/view",$data);
+		$this->load->view("Padrao/footer_view",$footer);
+        
+    }
+        	
 }//END CLASS

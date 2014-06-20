@@ -87,10 +87,10 @@ $changer = new Formata_Taxa();
 				</tr>
 				<tr>
 					<td class="texto_pb" >
-						<?php echo $acordo->getUsuarioInclusao()->getNome(). " | ".$acordo->getDataInclusao()->format("d-m-Y H:i:s");?>
+						<?php echo $acordo->getUsuarioAlteracao() == NULL ? "Não Há" : $acordo->getUsuarioInclusao()->getNome(). " | ".$acordo->getDataInclusao()->format("d-m-Y H:i:s");?>
 					</td>
 					<td class="texto_pb">
-						<?php echo $acordo->getUsuarioAlteracao()->getNome() == '' ? "Não Há" : $acordo->getUsuarioAlteracao()->getNome(). " | ".$acordo->getDataAlteracao()->format("d-m-Y H:i:s");?>
+						<?php echo $acordo->getUsuarioAlteracao() == NULL ? "Não Há" : $acordo->getUsuarioAlteracao()->getNome(). " | ".$acordo->getDataAlteracao()->format("d-m-Y H:i:s");?>
 					</td>					
 				</tr>									                                                                                     
 			</table>                        

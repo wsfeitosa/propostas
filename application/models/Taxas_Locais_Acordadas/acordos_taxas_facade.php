@@ -135,7 +135,7 @@ class Acordos_Taxas_Facade extends CI_Model {
 		}
 
 		unset($_SESSION['Desbloqueios']);
-
+                        
 		/** Verifica se o item da proposta está dentro da validade **/
 		$solicitacao_facade = new Solicitacao_Desbloqueio_Periodo_Facade();
 		$solicitacao_entity = new Solicitacao_Periodo_Entity();
@@ -149,12 +149,39 @@ class Acordos_Taxas_Facade extends CI_Model {
 		$solicitacao_entity->setModulo("taxa_local");
 
 		$necessita_desbloqueio = $solicitacao_facade->verificaSeEstaDentroDaValidade($solicitacao_entity,$entity->getSentido());
-
+        
 		if( $necessita_desbloqueio === TRUE )
 		{
 			//$solicitacao_facade->solicitaDesbloqueioPeriodo($solicitacao_entity);
 		}
-
+               
+        /**
+         * Salva o log do acordo através do memento
+         */              
+        $this->load->model("Taxas_Locais_Acordadas/Memento/care_taker");
+               
+        $care_taker = new Care_Taker();
+        
+        /**
+         * Verifica se o numero do acordo ja foi informado na classe
+         */
+        if( $entity->getNumero() == NULL )
+        {
+            $this->db->select("numero")->from("CLIENTES.acordos_taxas_locais_globais")->where("id",$entity->getId());
+            
+            $rowSet = $this->db->get();
+            
+            if( $rowSet->num_rows() > 0 )
+            {           
+                $resultRow = $rowSet->row();
+                
+                $entity->setNumero($resultRow->numero);
+            }
+            
+        }    
+                
+        $care_taker->SaveState($entity->CreateMemento());
+        
 		return $id_acordo;
 	}
 
