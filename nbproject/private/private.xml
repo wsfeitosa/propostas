@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/views/Adicionais/listar_resultados_busca.php</file>
-            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/controllers/adicionais/adicionais.php</file>
-            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/models/Adicionais/busca_acordos_adicionais.php</file>
-            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/views/Adicionais/filtrar_busca.php</file>
+            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/models/Tarifario/Factory/concrete_exportacao_factory.php</file>
+            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/models/Taxas/taxa_tarifario_model.php</file>
+            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/models/Tarifario/Facade/tarifario_facade.php</file>
+            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/controllers/tarifarios/tarifarios.php</file>
+            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/models/Tarifario/tarifario_exportacao_model.php</file>
+            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/models/Taxas_Locais_Acordadas/Interfaces/Entity.php</file>
+            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/models/Taxas/taxa_adicional.php</file>
+            <file>file:/run/user/1000/gvfs/smb-share:server=80.0.10.16,share=scoa,user=cpd/Clientes/propostas/application/models/Tarifario/Factory/concrete_factory.php</file>
         </group>
     </open-files>
 </project-private>

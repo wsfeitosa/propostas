@@ -50,7 +50,15 @@ class Solicitacao_Desbloqueio_Model extends CI_Model {
 				$dataSolicitacao = new DateTime($solicitacao->data_solicitacao);
 				$solicitacaoDesbloqueio->setDataSolicitacao($dataSolicitacao);
 				
-				array_push($solicitacoesPendentes, $solicitacaoDesbloqueio);
+                /**
+                 * Verifica se o aprovador é da mesma filial do solicitante,
+                 * pelas regras o aprovador só aprova as solicitações dos
+                 * usuários da mesma filial.
+                 */   
+                if( ($solicitante->getFilial()->getSiglaFilial() == $_SESSION['matriz'][1]) || $_SESSION['matriz'][4] == "CPD" )
+                {
+                    array_push($solicitacoesPendentes, $solicitacaoDesbloqueio);
+                }    
 			}	
 		}
 

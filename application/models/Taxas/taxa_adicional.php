@@ -12,7 +12,10 @@
  * @abstract
  */
 include_once 'taxa.php';
-include_once APPPATH."models/Taxas_Locais_Acordadas/Interfaces/Entity.php";
+if(! interface_exists('Entity') )
+{    
+    include_once APPPATH."models/Taxas_Locais_Acordadas/Interfaces/Entity.php";
+}
 
 class Taxa_Adicional extends Taxa implements Entity{
 	

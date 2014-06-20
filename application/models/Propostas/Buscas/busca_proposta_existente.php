@@ -11,6 +11,8 @@
  * @version 1.0
  */
 include_once "/var/www/html/allink/Clientes/propostas/application/models/Propostas/Buscas/finder.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/scoa-sdk/autoload.php";
+include_once "entity/intervalo_datas.php";
 
 class Busca_Proposta_Existente extends CI_Model implements Finder {
 	
@@ -117,9 +119,9 @@ class Busca_Proposta_Existente extends CI_Model implements Finder {
 			$existe_conflito = verifica_intervalo($row->data_inicial,$row->validade,$inicio->format('Y-m-d'),$validade->format('Y-m-d'));
 			//FIXME está com um problema no model que verifica o intervalo de datas
 			$existe_conflito = TRUE;
-
+                                    
 			if( $existe_conflito )
-			{
+			{                
 				return $rs->row()->id_item_proposta;
 			}
 			else
@@ -173,8 +175,8 @@ class Busca_Proposta_Existente extends CI_Model implements Finder {
             {
             	
                 $id_item_excluir = $this->verificarSeClienteJaPossuiPropostaValidaERetornaId($cliente, $item->getTarifario(), new DateTime($item->getInicio()), new DateTime($item->getValidade()));
-                                
-                if( $id_item_excluir !== FALSE && $item->getId() != $id_item_excluir && get_class($proposta) == "Proposta_NAC" && get_class($proposta) == "Proposta_Spot" )
+                
+                if( $id_item_excluir !== FALSE && $item->getId() != $id_item_excluir && (get_class($proposta) == "Proposta_Cotacao" OR get_class($proposta) == "Proposta_Tarifario") )
                 {
                     $itens_duplicados->append($id_item_excluir);
                 }    
