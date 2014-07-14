@@ -37,7 +37,9 @@ $(document).ready(function(){
 	});
 	
 	$("#adicionar").click(function(){
-				
+		
+        var acordo_adicionais = "";
+        
 		$("input:checked").each(function(){
 									
 			if( $(this).attr("id") != "selecionar_todos" )
@@ -65,7 +67,7 @@ $(document).ready(function(){
 		        {
 		            imo = "N";
 		        } 
-		        
+		                                        
 				$.ajax({
 		            type: "POST",  
 		            async: false,
@@ -85,7 +87,8 @@ $(document).ready(function(){
 		                    var embarque = $(this).find("embarque").text();
 		                    var desembarque = $(this).find("desembarque").text();
 		                    var destino = $(this).find("destino").text();
-		                    
+		                    acordo_adicionais = $(this).find("adicional_negociado").text();
+                            console.log(acordo_adicionais);
 		                    label += origem + " - " + embarque + " - " + desembarque + " - " + destino;
 		                    		                    
 		                    $("#rotas_adicionadas", window.parent.document).append(new Option(label, value));
@@ -128,6 +131,12 @@ $(document).ready(function(){
 	
 		});
 		
+        /** Emite um alerta ao cliente que ele possui adiconais negociados **/
+        if( acordo_adicionais != "" )
+        {
+            alert("Este cliente possui taxas adicionais negociadas:\n"+acordo_adicionais);
+        }
+        
 		$("#msg", window.parent.document).html("");				
 		window.location = "/Clientes/propostas/index.php/loading/";		
 		

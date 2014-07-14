@@ -62,7 +62,7 @@ class Serializa_Taxas extends CI_Model {
             
             /** separa os parametros das taxas **/
             $dados_da_taxa = explode(Serializa_Taxas::caracter_separador_taxa,$taxa_serializada);
-            
+           
             $taxa_convertida = new $tipoTaxa();
             
             $taxa_convertida->setId((int)$dados_da_taxa[0]);
@@ -104,7 +104,7 @@ class Serializa_Taxas extends CI_Model {
                     $unidade_model->findById($unidade);
                     $taxa_convertida->setUnidade($unidade);
                 } catch (Exception $e) {
-                    show_error($e->getMessage());
+                    show_error($e->getMessage());                    
                 }
 
             }    
@@ -114,7 +114,7 @@ class Serializa_Taxas extends CI_Model {
             array_push($taxas_deserializadas, $taxa_convertida);
                                     
         }    
-         
+        
         return $taxas_deserializadas;
         
     }//END FUNCTION

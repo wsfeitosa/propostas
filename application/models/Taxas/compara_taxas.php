@@ -55,10 +55,12 @@ class Compara_Taxas {
 			{
 				$this->resultado_comparacao[$taxa_comparacao->getId()] = $taxa_comparacao;
 			}
+            /**
 			else
 			{
 				$this->resultado_comparacao[$taxa_comparacao->getId()] = $taxa_comparacao;
-			}		
+			}
+            **/ 		
 		}	
 		
 		return $this->resultado_comparacao;

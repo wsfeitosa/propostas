@@ -57,7 +57,7 @@ class Item_Proposta_Model extends CI_Model {
            * para que não existam dois ativos ao mesmo tempo 
            */
          $itens_para_excluir = $finder->buscaPorItensDuplicadosDeUmaNovaProposta($proposta);           
-         
+
          if( $itens_para_excluir->count() > 0 )
          {
              $iterator = $itens_para_excluir->getIterator();

@@ -164,7 +164,9 @@ class Adicionais extends CI_Controller{
                 $taxas_autorizadas[$taxa_permitida] = $taxas_completas[$taxa_permitida];
             }    
         }    
-                        
+        
+        asort($taxas_autorizadas);    
+        
         $data["taxas"] = $taxas_autorizadas;
         
 		$data['id_taxa'] = $id_taxa;
@@ -526,5 +528,47 @@ class Adicionais extends CI_Controller{
 				window.close();		
 			  </script>";
     }
+    
+    public function informar_numero_cancelamento()
+    {
+        $header['form_title'] = 'Scoa - Adicionais Frete';
+		$header['form_name'] = 'CANCELAR ACORDO DE ADICIONAIS';
+		$header['css'] = '';
+		$header['js'] = load_js(array('adicionais/informar_numero_cancelamento.js'));
+		
+		$imagens = "";
+		$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/novo.jpg', 'id' => 'novo' , 'border' => 0, "title" => "Abre a tela para cadastrar um novo acordo. Qualquer informação não salva será perdida!")).'</a>';
+		$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/gravar.jpg', 'id' => 'salvar' , 'border' => 0, "title" => "Salva o acordo sendo cadastrado.")).'</a>';
+		$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/localizar.gif', 'id' => 'localizar' , 'border' => 0, "title" => "Abre a tela de busca de acordos. Qualquer informação não salva será perdida!")).'</a>';
+		$imagens .= '<a href="#">'.img(Array('src' => 'http://'.$_SERVER['HTTP_HOST'].'/Imagens/voltar.gif', 'id' => 'voltar' , 'border' => 0, "title" => "Volta para o menu principal")).'</a>';
+		
+		$footer['footer'] = $imagens;
+		                        
+		$this->load->view("Padrao/header_view_new",$header);
+		$this->load->view("Adicionais/informar_numero_cancelamento");
+		$this->load->view("Padrao/footer_view_new",$footer);
+    }   
+    
+    public function cancelar()
+    {
+        $this->load->model("Adicionais/adicionais_facade");
+        
+        try {
+            $this->adicionais_facade->cancelarAcordo($this->input->post('numero'));   
+            
+            echo "<script language='javascript'>
+                    alert('Acordo cancelado com sucesso!');
+                    window.location = '/Clientes/propostas/index.php/adicionais/adicionais/informar_numero_cancelamento/';
+                  </script>";
+            
+        } catch (Exception $ex) {
+            echo "<script language='javascript'>
+                    alert('".$ex->getMessage()."');
+                    window.location = '/Clientes/propostas/index.php/adicionais/adicionais/informar_numero_cancelamento/';
+                  </script>";
+        }
+        
+        
+    }    
 	
 }

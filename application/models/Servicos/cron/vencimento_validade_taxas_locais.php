@@ -15,7 +15,7 @@ $usuarios_invalidos = Array(112,387,341,491,492);
 $data_corte = new DateTime();
 $data_volumes = new DateTime();
 
-$data_corte->modify("+6 Days");
+$data_corte->modify("+7 Days");
 
 $sentido_acordo = "";
 
@@ -40,6 +40,8 @@ try{
                 order('validade','ASC');
     
     $acordos_encontrados = $conn->fetchAll($sql);
+
+    echo $sql->__toString()."<br/>";    
 } catch (Exception $e) {
     echo $e->getMessage();exit(0);
 }
@@ -388,10 +390,10 @@ foreach ($acordos_agrupados as $id_acordo => $acordo)
                             OU
                             <br />
                             PEDIR REVALIDAÇÃO POR:<br />
-                            <a href="http://'.$_SERVER['SERVER_ADDR'].'/Clientes/propostas/index.php/taxas_locais/taxas_locais/revalidate/'.$acordo['acordo']['id'].'/1">1 MÊS</a> | 
-                            <a href="http://'.$_SERVER['SERVER_ADDR'].'/Clientes/propostas/index.php/taxas_locais/taxas_locais/revalidate/'.$acordo['acordo']['id'].'/3">3 MESES</a> | 
-                            <a href="http://'.$_SERVER['SERVER_ADDR'].'/Clientes/propostas/index.php/taxas_locais/taxas_locais/revalidate/'.$acordo['acordo']['id'].'/6">6 MESES</a> | 
-                            <a href="http://'.$_SERVER['SERVER_ADDR'].'/Clientes/propostas/index.php/taxas_locais/taxas_locais/revalidate/'.$acordo['acordo']['id'].'/12">'.date('Y').'</a>
+                            <a href="https://'.$_SERVER['SERVER_ADDR'].'/Clientes/propostas/index.php/taxas_locais/taxas_locais/revalidate/'.$acordo['acordo']['id'].'/1">1 MÊS</a> | 
+                            <a href="https://'.$_SERVER['SERVER_ADDR'].'/Clientes/propostas/index.php/taxas_locais/taxas_locais/revalidate/'.$acordo['acordo']['id'].'/3">3 MESES</a> | 
+                            <a href="https://'.$_SERVER['SERVER_ADDR'].'/Clientes/propostas/index.php/taxas_locais/taxas_locais/revalidate/'.$acordo['acordo']['id'].'/6">6 MESES</a> | 
+                            <a href="https://'.$_SERVER['SERVER_ADDR'].'/Clientes/propostas/index.php/taxas_locais/taxas_locais/revalidate/'.$acordo['acordo']['id'].'/12">'.date('Y').'</a>
 					   </td>';
         }
         else
@@ -511,7 +513,7 @@ foreach ($acordos_agrupados as $id_acordo => $acordo)
     $assunto = "AVISO DE VENCIMENTO 1 SEMANA - {$acordo['acordo']['numero']} - ".$acordo['clientes'][0]['razao'];
     
     envia_email("smtp.scoa@allink.com.br", 
-				"Allink Transportes Internacionais", "wellington.feitosa@allink.com.br;fabio.shimada@allink.com.br", 
+				"Allink Transportes Internacionais", "wellington.feitosa@allink.com.br;leandro.oliveira@allink.com.br", 
                 "joao.neder@allink.com.br;rafael.silverio@allink.com.br", 
 				"wellington.feitosa@allink.com.br", "noreply", 
 				$assunto, $mensagem,

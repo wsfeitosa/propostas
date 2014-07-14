@@ -201,4 +201,27 @@ class Busca_Acordos_Adicionais extends CI_Model {
 		return $acordosEncontrados;
 	}
 	
+    public function buscarAcordoDeAdicionaisPorNumero($numero_acordo = NULL)
+    {
+        if(is_null($numero_acordo) )
+        {
+            throw new InvalidArgumentException("O número do acordo informado não é válido!");
+        } 
+        
+        $rowSet = $this->db->get_where("CLIENTES.acordo_adicionais", "numero_acordo = '".$numero_acordo."'");
+        
+        if( $rowSet->num_rows() < 1 )
+        {
+            throw new RuntimeException("Nenhum acordo encontrado com o número informado!");
+        }    
+        
+        $this->load->model("Adicionais/acordo_adicionais");
+        
+        $acordo = new Acordo_Adicionais();
+        $acordo->setId((int)$rowSet->row()->id);
+        $acordo->setNumeroAcordo($rowSet->row()->numero_acordo);
+        
+        return $acordo;
+    }    
+    
 }

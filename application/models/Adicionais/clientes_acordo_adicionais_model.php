@@ -50,7 +50,8 @@ class Clientes_Acordo_Adicionais_model extends CI_Model{
 				join("CLIENTES.acordo_adicionais","acordo_adicionais.id = clientes_x_acordo_adicionais.id_acordo_adicionais")->
 				where("id_cliente",$cliente->getId())->
 				where("inicio <=",date('Y-m-d'))->
-				where("validade >=",date('Y-m-d'));
+				where("validade >=",date('Y-m-d'))->
+                where("ativo","S");
 		
 		$rowSetAcordos = $this->db->get();
 						
@@ -109,5 +110,5 @@ class Clientes_Acordo_Adicionais_model extends CI_Model{
 		}
 	
 	}
-	
+        
 }

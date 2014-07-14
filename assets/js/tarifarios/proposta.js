@@ -65,6 +65,7 @@ $(document).ready(function(){
                 	var rotas = $(this).find("rota");
                 	var taxas_adicionais = $(this).find("taxas_adicionais");
                 	var taxas_locais = $(this).find("taxas_locais");
+                    var acordo_adicionais = $(this).find("adicional_negociado").text();
                 	                	                	                	
                 	/** Carrega os portos do tarifario **/
                 	$("#origem", window.parent.document).val($(rotas).find("origem").find("nome").text());
@@ -95,6 +96,12 @@ $(document).ready(function(){
                     {
                         ppcc_taxas_locais = "PP";
                     }    
+                    
+                    /** Emite um alerta ao cliente que ele possui adiconais negociados **/
+                    if( acordo_adicionais != "" )
+                    {
+                        alert("Este cliente possui taxas adicionais negociadas:\n"+acordo_adicionais);
+                    } 
                 	
                 	/** carrega o frete e taxas adicionais **/
                 	$(taxas_adicionais).find("taxa").each(function(){

@@ -318,7 +318,7 @@ class Tarifario_Facade extends CI_Model {
             $concrete_factory = new Concrete_Exportacao_Factory();
         }
         else
-       {
+        {
             $concrete_factory = new Concrete_Importacao_Factory();
         }	 	
 
@@ -374,13 +374,73 @@ class Tarifario_Facade extends CI_Model {
         		$tarifario->adicionarNovaTaxa($taxa_acordada);
         	}        	
         }	
+        
+        /**
+         * Verifica se existem acordos de adicionais validos para 
+         * algum dos clientes nessa rota
+         */
+        $this->load->model("Adicionais/clientes_acordo_adicionais_model");
+        
+        $buscador_acordo_adicionais = new Clientes_Acordo_Adicionais_model();
+        
+        $acordos_adicional = $buscador_acordo_adicionais->buscarAcordosPorIdDoCliente($cliente);
                         
+        if( $acordos_adicional->count() > 0 && $tarifario->getSentido() == 'EXP' )
+        {
+            $this->load->model("Adicionais/acordo_adicionais_model");
+            
+            $acordo_model = new Acordo_Adicionais_Model();
+            
+            $iterador_adicionais = $acordos_adicional->getIterator();
+            
+            while( $iterador_adicionais->valid() )
+            {
+                $acordo = $iterador_adicionais->current();
+                
+                $acordo_model->consultarAcordoAdicionaisPorId($acordo);
+                
+                /** Compara às taxas que são o padrão do porto com às taxas do acordo **/
+                include_once APPPATH . "models/Taxas/compara_taxas.php";
+			 
+                $comparador = new Compara_Taxas($tarifario->getTaxa(), $acordo->getTaxas());
+			 
+                $taxas_adicionais_acordadas = $comparador->comparar_taxas();
+                
+                /** Limpa às taxas que estão no tarifário para incluir às acordadas **/
+                $tarifario->limparTaxasTarifario();
+
+                foreach( $taxas_adicionais_acordadas as $taxa_acordada )
+                {
+                    if( $taxa_acordada->getValor() < 1 )
+                    {
+                        continue;
+                    }	
+                    $tarifario->adicionarNovaTaxa($taxa_acordada);
+                }
+                
+                /** 
+                 * Cria uma variavel em tempo de excução na classe Tarifario e 
+                 * informa quais são às taxas que estão negociadas para esse tarifário
+                 */
+                foreach($acordo->getTaxas() as $taxaAcordoAdicionais)
+                {
+                    $tarifario->adicional_negociado = $tarifario->adicional_negociado . "\n" . $taxaAcordoAdicionais->getNome();
+                }                    
+                
+                $iterador_adicionais->next();    
+            }    
+        }
+        
         /** 
          * Verifica se foi informado algum id de item de proposta,
          * em caso positivo busca às taxas desse item e sobreescreve às taxas padrões do tarifário.
          */        
         if( ! is_null($id_item_proposta) && $id_proposta != 0 )
         {
+            /** 
+             * Se for uma rota com uma proposta então, retira a mensagem do aacordo de incentivos (Adicionais sobre o frete)            
+             */
+            $tarifario->adicional_negociado = NULL;
             
             $item = new Item_Proposta();
                         

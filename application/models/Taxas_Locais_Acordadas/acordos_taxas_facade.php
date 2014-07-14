@@ -1,10 +1,10 @@
 <?php
-
+/**
 if( ! isset($_SESSION['matriz']) )
 {
 	session_start();
 }
-
+**/
 /**
  * Acordos_Taxas_Facade
  *
@@ -130,7 +130,7 @@ class Acordos_Taxas_Facade extends CI_Model {
 		{
 			foreach($_SESSION['Desbloqueios'][$id_acordo] as $solicitacoes_sessao)
 			{
-				//$solicitacao->solicitar_desbloqueio(unserialize($solicitacoes_sessao));
+				$solicitacao->solicitar_desbloqueio(unserialize($solicitacoes_sessao));
 			}
 		}
 
@@ -152,7 +152,7 @@ class Acordos_Taxas_Facade extends CI_Model {
         
 		if( $necessita_desbloqueio === TRUE )
 		{
-			//$solicitacao_facade->solicitaDesbloqueioPeriodo($solicitacao_entity);
+			$solicitacao_facade->solicitaDesbloqueioPeriodo($solicitacao_entity);
 		}
                
         /**

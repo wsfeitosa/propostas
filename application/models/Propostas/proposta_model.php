@@ -143,19 +143,43 @@ class Proposta_Model extends CI_Model {
              * Verifica se é um objeto datetime valido, este trecho estava ocasionando um erro de
              * segmentation falt no módulo apache do PHP.
              */
-            $dataDeInicioDoItem = new DateTime($item['inicio']);
-            $dataDeValidadeDoItem = new DateTime($item['validade']);
-            
-            if( ! $dataDeInicioDoItem instanceof DateTime )
+			/**
+			if($_SESSION['matriz'][4]=="CPD")
+			{
+				$item['inicio'] = "CC";
+				$item['validade'] = "PP";
+			}	
+			**/
+			/** explode às datas para fazer a verificação **/
+			$data_inicial_separada = explode("-", $item['inicio']);
+			$validade_separada = explode("-", $item['validade']);
+			
+			if( checkdate($data_inicial_separada[1], $data_inicial_separada[0], $data_inicial_separada[2]) === FALSE )
             {
-                $dataDeInicioDoItem = new DateTime();
+                $dataDeInicioDoItem = new DateTime(null);
             }
+            else
+            {            
+	            try{
+	            	$dataDeInicioDoItem = new DateTime($item['inicio']);
+	            } catch(Exception $e) {
+	            	$dataDeInicioDoItem = new DateTime(null);
+	            }	
+            }	
             
-            if( ! $dataDeValidadeDoItem instanceof DateTime )
+            if( checkdate($validade_separada[1], $validade_separada[0], $validade_separada[2]) === FALSE )
             {
                 $dataDeValidadeDoItem = new DateTime(date('Y-m-t'));
-            }    
-
+            }
+            else
+            {
+	            try {            	
+	            	$dataDeValidadeDoItem = new DateTime($item['validade']);
+	            } catch (Exception $e) {
+					$dataDeValidadeDoItem = new DateTime(date('Y-m-t'));	
+	            }
+            }  
+           	
             /** Carrega às informações do tarifário selecionado na proposta **/
             $tarifario_model->findById($tarifario,"A",$dataDeInicioDoItem,$dataDeValidadeDoItem);
             
@@ -186,10 +210,37 @@ class Proposta_Model extends CI_Model {
                     $tarifario->adicionarNovaTaxa($taxa_adicional);
                 }
             }    
-           
-            $data_inicio_acordo = new DateTime($item['inicio']);
-            $validade_acordo = new DateTime($item['validade']);
+           	
+			/** explode às datas para fazer a verificação **/
+			$data_inicial_separada = explode("-", $item['inicio']);
+			$validade_separada = explode("-", $item['validade']);
+			
+			if( checkdate($data_inicial_separada[1], $data_inicial_separada[0], $data_inicial_separada[2]) === FALSE )
+            {
+                $data_inicio_acordo = new DateTime(null);
+            }
+            else
+            {            
+	            try{
+	            	$data_inicio_acordo = new DateTime($item['inicio']);
+	            } catch(Exception $e) {
+	            	$data_inicio_acordo = new DateTime(null);
+	            }	
+            }	
             
+            if( checkdate($validade_separada[1], $validade_separada[0], $validade_separada[2]) === FALSE )
+            {
+                $validade_acordo = new DateTime(date('Y-m-t'));
+            }
+            else
+            {
+	            try {            	
+	            	$validade_acordo = new DateTime($item['validade']);
+	            } catch (Exception $e) {
+					$validade_acordo = new DateTime(date('Y-m-t'));	
+	            }
+            }
+                        
             $item_proposta = new Item_Proposta($tarifario);
                         
             $item_proposta->setInicio($data_inicio_acordo->format('Y-m-d'));

@@ -317,7 +317,7 @@ class Exportar_Pdf_Proposta extends CI_Model {
 							NVOCC_STS_EXP.vgnavios
 							INNER JOIN GERAIS.navios ON navios.id_navio = vgnavios.id_navio
 						WHERE
-							SUBSTRING(vgnavios.eta,1,10) > '".date('Y-m-d')."' AND
+							SUBSTRING(vgnavios.deadlineour,1,10) > '".date('Y-m-d')."' AND
 							vgnavios.id_via = '".$item->getTarifario()->getRota()->getPortoDesembarque()->getId()."'			
 						ORDER BY
 							vgnavios.id_viagem ASC

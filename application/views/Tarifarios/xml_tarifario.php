@@ -171,6 +171,14 @@ $autonomia = $dom->createElement("autonomia_frete",number_format($tarifario->get
 
 $t->appendChild($autonomia);
 
+/** Aviso dos adicionais de frete negociados **/
+if( isset($tarifario->adicional_negociado) )
+{
+    $adicional_ngociado = $dom->createElement("adicional_negociado",$tarifario->adicional_negociado);
+    
+    $t->appendChild($adicional_ngociado);
+}    
+
 $dom->appendChild($t);
 
 echo $dom->saveXML();

@@ -383,4 +383,100 @@ class Adicionais_Facade extends CI_Model{
                
     }
 	
+    public function cancelarAcordo($numero_acordo = NULL)
+    {
+        if(is_null($numero_acordo) )
+        {
+            throw new InvalidArgumentException("O número do acordo informado não é válido!");
+        }   
+        
+        /**
+         * Tenta encontra o acordo com o número informado
+         */
+        $this->load->model("Adicionais/busca_acordos_adicionais");
+        $this->load->model("Adicionais/acordo_adicionais_model");
+        $this->load->model("Usuarios/usuario_model");
+        $this->load->model("Usuarios/usuario");
+        $this->load->model("Email/envio");
+        $this->load->model("Email/email");
+        
+        $buscador = new Busca_Acordos_Adicionais();
+        
+        $acordo = $buscador->buscarAcordoDeAdicionaisPorNumero($numero_acordo);
+        
+        /**
+         * Se o acordo foi encontrado então cancela o acordo
+         */
+        $acordo_model = new Acordo_Adicionais_Model();
+        
+        $acordo_model->consultarAcordoAdicionaisPorId($acordo);
+        
+        $acordo_model->cancelaAcordo($acordo);
+        
+        /**
+         * Aqui envia a mensagem de cancelamento aos usuários interassados no acordo
+         * que acabou de ser cancelado (customers e vendedores)
+         */
+        $usuario_model = new Usuario_Model(); 
+        
+        $envio = new Envio();
+        
+        $usuario_model->findById($acordo->getUsuarioCadastro());
+                
+        $envio->adicionarNovoEmail($acordo->getUsuarioCadastro()->getEmail());
+        
+        /** Copia tambe? o usuário que está cencelando o acordo **/
+        $usuarioCancelamento = new Usuario();
+        $usuarioCancelamento->setId((int)$_SESSION['matriz'][7]);
+        $usuario_model->findById($usuarioCancelamento);
+        
+        $envio->adicionarNovoEmail($usuarioCancelamento->getEmail());
+        
+        $stringClientes = "";
+        
+        foreach( $acordo->getClientes() as $cliente )
+        {
+            $usuario_model->findById($cliente->getVendedorExportacao());
+            $usuario_model->findById($cliente->getCustomerExportacao());
+            
+            $envio->adicionarNovoEmail($cliente->getVendedorExportacao()->getEmail());
+            $envio->adicionarNovoEmail($cliente->getCustomerExportacao()->getEmail());
+            
+            $stringClientes .= $cliente->getCnpj() . " -> " . $cliente->getRazao()."<br />";
+        }    
+        
+        $mensagem ='<div class="container_elemento">				            
+			            <label class="conteudo">
+			            	O acordo de adicionais '.$acordo->getNumeroAcordo().' do(s) cliente(s),<p />'.
+                            $stringClientes    
+                            .'<p />foi cancelado em '.date('d/m/Y H:i:s').' por '.$usuarioCancelamento->getnome().'.
+			            </label>
+			        </div>';
+		$corpo_email .= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+							<head>
+							    <title>Scoa</title>
+							    <meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+							    <meta name="description" content="Scoa Sistema de controle Allink" />
+							    <meta name="author" content="Allink Transportes Internacionais Ltda" />
+							    <meta name="robots" content="noindex,nofollow" />
+							    <meta name="robots" content="noarchive" />
+							    '.$envio->incluir_estilo_email().'
+							</head>
+							<body>';		
+		$corpo_email .= "<div class='principal'>";
+		$corpo_email .= "<p class='titulo'>CANCELAMENTO DE ACORDO DE ADICIONAIS</p>";
+		$corpo_email .= $mensagem;
+		$corpo_email .="</div>";
+		$corpo_email .="<div class='botoes'>Email enviado em: ".date('d/m/Y H:i:s')."</div>";
+		$corpo_email .= "</body></html>";
+        
+        $cliente_assunto = $acordo->getClientes();
+        
+        $assunto = "Cancelamento de acordo de adicionais ".$acordo->getNumeroAcordo()." -> " . $cliente_assunto[0]->getRazao();
+        
+        //return $envio->enviarMensagem($corpo_email, $assunto);
+        return;       
+    }    
+    
 }

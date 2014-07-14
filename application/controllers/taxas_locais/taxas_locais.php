@@ -8,7 +8,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  * Controla o fluxo da aplicação para o cadastro de acordos de taxas locais
  */
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Gerais/autenticacao.php';
+//include_once $_SERVER['DOCUMENT_ROOT'] . '/Gerais/autenticacao.php';
 
 class Taxas_Locais extends CI_Controller{
 	
@@ -397,6 +397,8 @@ class Taxas_Locais extends CI_Controller{
     
     public function revalidate($id_acordo = NULL, $meses = NULL)
     {
+    	pr($_SESSION);exit(0);
+
         if( empty($id_acordo) || is_null($meses) )
         {
             die("Não foi possivel processar o envio da solicitação");

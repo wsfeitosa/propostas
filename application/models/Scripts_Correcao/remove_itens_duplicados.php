@@ -2,7 +2,7 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Conexao/conecta.inc";
 
 $propostas_duplicadas = array(
-                                "PT0514SP056660000","PT0614SP072610000"
+                                "PT0514SP056660000","PT0614SP079610000"
 );
 
 $conn = Zend_Conn();

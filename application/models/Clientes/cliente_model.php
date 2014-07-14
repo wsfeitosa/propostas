@@ -131,7 +131,8 @@ class Cliente_Model extends CI_Model{
         			    id_classificacao, cidade, responsavel, customer, customer_exportacao, customer_importacao,
         				id_grupo_comercial, id_grupo_cnpj")->
                 from("CLIENTES.clientes")->
-                where("id_cliente", $cliente->getId());
+                where("id_cliente", $cliente->getId())->
+                order_by("id_cliente","ASC");
                 //where("ativo", "S");
         
         $rs = $this->db->get();

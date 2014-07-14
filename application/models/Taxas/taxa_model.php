@@ -249,7 +249,7 @@ class Taxa_Model extends CI_Model {
     			select("id_txadicional as id_taxa, taxa_adicional as taxa")->
     			from("FINANCEIRO.taxas_adicionais")->
     			where("conta_contabil",1)->
-    			//where("id_txadicional !=",10)->
+                order_by("taxa","ASC")->
                 group_by("taxa");
     	
     	$this->db->cache_on();

@@ -26,7 +26,9 @@ try {
 				where("validade >= ?",date('Y-m-d'))->
 				where("validade <= ?",$data_corte->format('Y-m-d'))->
 				order('validade','ASC');
-				
+	
+	echo $sql->__toString()."<br/>";			
+
 	$itens_encontrados = $conn->fetchAll($sql);
 } catch (Exception $e) {
 	echo $e->getMessage();exit(0);
@@ -316,7 +318,7 @@ foreach( $propostas as $id_proposta => $proposta )
 	envia_email("smtp.scoa@allink.com.br", 
 				"Allink Transportes Internacionais", $email_vendedor, 
 				$email_customer, 
-				"wellington.feitosa@allink.com.br", "noreply", 
+				"wellington.feitosa@allink.com.br;leandro.oliveira@allink.com.br", "noreply", 
 				"Vencimento de Proposta Comercial Allink - ".strtoupper($proposta["cliente"]["razao"]) . " -> ".$proposta['proposta']['sentido'], $mensagem, 
 				$anexo="", $nome_anexo="");
 	

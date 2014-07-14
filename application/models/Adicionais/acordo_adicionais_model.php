@@ -254,5 +254,11 @@ class Acordo_Adicionais_Model extends CI_Model{
     {
         
     }    
+    
+    public function cancelaAcordo(Acordo_Adicionais $acordo)
+    {
+        $this->db->where("id",$acordo->getId());
+        return $this->db->update("CLIENTES.acordo_adicionais", array("ativo" => "N"));
+    } 
 		
 }

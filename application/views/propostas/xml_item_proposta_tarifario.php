@@ -26,6 +26,10 @@ $xml->startElement("root");
 	$xml->startElement("destino");
 		$xml->text($rota->getPortoFinal()->getNome());
 	$xml->endElement();
+    
+    $xml->startElement("adicional_negociado");
+		$xml->text($adicional_negociado);
+	$xml->endElement();
 	
 $xml->endElement();	
 

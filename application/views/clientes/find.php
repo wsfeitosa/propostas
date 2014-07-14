@@ -82,10 +82,10 @@ $cliente_model = new Cliente_Model();
 						<?php echo $cliente->getVendedorExportacao()->getNome();?>							
 					</td>
 					<td align="center" class="texto_pb">							
-						<?php echo $cliente->getCustomerExportacao()->getNome();?>							
+						<?php echo $cliente->getVendedorImportacao()->getNome();?>							
 					</td>
 					<td align="center" class="texto_pb">							
-						<?php echo $cliente->getVendedorImportacao()->getNome();?>							
+						<?php echo $cliente->getCustomerExportacao()->getNome();?>							
 					</td>
 					<td align="center" class="texto_pb">							
 						<?php echo $cliente->getCustomerImportacao()->getNome();?>							

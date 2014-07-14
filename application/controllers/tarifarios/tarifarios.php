@@ -263,7 +263,8 @@ class Tarifarios extends CI_Controller {
 			
 			$data["id_item_sessao"] = $id_item_sessao;
 			$data['rota'] = $tarifario->getRota();
-			
+			$data['adicional_negociado'] = $tarifario->adicional_negociado;
+            
 			$this->load->view("propostas/xml_item_proposta_tarifario",$data);
 										
 		} catch (Exception $e) {
