@@ -65,6 +65,7 @@ $this->load->model("Adicionais/acordo_adicionais_model");
         			$acordoSalvo = new Acordo_Adicionais();
         			$acordoSalvo->setId((int)$acordo->getId());
         			$this->acordo_adicionais_model->consultarAcordoAdicionaisPorId($acordoSalvo);
+                    $this->acordo_adicionais_model->localizaUltimoDesbloqueio($acordoSalvo);
         		?>
         		        		        		
         		<h3><?php echo $acordo->getNumeroAcordo() . " - " . $clientes[0]->getRazao(); ?></h3>
@@ -106,7 +107,40 @@ $this->load->model("Adicionais/acordo_adicionais_model");
 						<label class="label">Solicitado Por:</label>
 						<?php echo $solicitacao->getSolicitante()->getNome(); ?>
 					</div>
-															
+					
+                    <div class="coluna">
+						<label class="label">Acordo Cadastrado Por:</label>
+						<?php echo $acordoSalvo->getUsuarioCadastro()->getNome() . " EM " . $acordoSalvo->getDataCadastro()->format('d/m/Y H:i:s'); ?>
+					</div>
+                    
+                    <div class="coluna">
+						<label class="label">Acordo Alterado Última Vez  Por:</label>
+						<?php
+                        if( $acordoSalvo->getUsuarioAlteracao() instanceof Usuario)
+                        {    
+                            echo $acordoSalvo->getUsuarioAlteracao()->getNome() . " EM " . $acordoSalvo->getDataAlteracao()->format('d/m/Y H:i:s'); 
+                        }
+                        else
+                        {
+                            echo "NÃO HOUVE ALTERAÇÃO"; 
+                        }    
+                        ?>
+					</div>
+                    
+                    <div class="coluna">
+						<label class="label">Acordo Aprovado Última Vez  Por:</label>                                               
+						<?php 
+                        if( $acordoSalvo->getUsuarioDesbloqueio() instanceof Usuario )
+                        {    
+                            echo $acordoSalvo->getUsuarioDesbloqueio()->getNome() . " EM " . $acordoSalvo->getDataDesbloqueio()->format('d/m/Y H:i:s'); 
+                        }
+                        else
+                        {
+                            echo "NÃO HOUVE DESBLOQUEIO";
+                        }    
+                        ?>					
+                    </div>
+                    
 					<div class="uma_coluna">
 					
 						<table class="tabela_scoa">

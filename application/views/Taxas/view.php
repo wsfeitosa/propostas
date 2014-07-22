@@ -87,12 +87,28 @@ $changer = new Formata_Taxa();
 				</tr>
 				<tr>
 					<td class="texto_pb" >
-						<?php echo $acordo->getUsuarioAlteracao() == NULL ? "Não Há" : $acordo->getUsuarioInclusao()->getNome(). " | ".$acordo->getDataInclusao()->format("d-m-Y H:i:s");?>
+						<?php echo $acordo->getUsuarioAlteracao() == NULL ? "Não Há" : $acordo->getUsuarioInclusao()->getNome(). " EM ".$acordo->getDataInclusao()->format("d/m/Y H:i:s");?>
 					</td>
 					<td class="texto_pb">
-						<?php echo $acordo->getUsuarioAlteracao() == NULL ? "Não Há" : $acordo->getUsuarioAlteracao()->getNome(). " | ".$acordo->getDataAlteracao()->format("d-m-Y H:i:s");?>
+						<?php echo $acordo->getUsuarioAlteracao() == NULL ? "Não Há" : $acordo->getUsuarioAlteracao()->getNome(). " EM ".$acordo->getDataAlteracao()->format("d/m/Y H:i:s");?>
 					</td>					
-				</tr>									                                                                                     
+				</tr>
+                <tr>
+					<td width="50%">
+						Desbloqueado Última Vez Por:
+					</td>
+					<td>
+                        &nbsp;
+					</td>																			                                                   
+				</tr>
+                <tr>
+					<td class="texto_pb" >
+						<?php echo $acordo->getUsuarioDesbloqueio() == NULL ? "Não Houve Debloqueio" : $acordo->getUsuarioDesbloqueio()->getNome(). " EM ".$acordo->getDataDesbloqueio()->format("d/m/Y H:i:s");?>
+					</td>
+					<td class="texto_pb">
+						
+					</td>					
+				</tr>
 			</table>                        
 		</td>
 	</tr>

@@ -185,11 +185,24 @@ class Acordo_Taxas_Locais_Model extends CI_Model implements Database_Operations 
 		$acordo->setDataAlteracao($data_ultima_alteracao);
 		
 		if( ! empty($resultSetAcordo->id_usuario_ultima_alteracao) )
-		{
-									
-			$usuario_model->findById($usuario_alteracao);
-						
+		{									
+			$usuario_model->findById($usuario_alteracao);						
 		}				
+        
+        $ultimo_desbloqueio = $this->localizarUltimoDesbloqueioDoAcordoDeTaxasLocais($acordo);
+        
+        /** Testa se o objeto está preenchido com os valores da classe de Active Recorde **/
+        if( ! empty($ultimo_desbloqueio->id_usuario_desbloqueio) )
+        {                 
+            $usuario_desbloqueio = new Usuario();
+            $usuario_desbloqueio->setId((int)$ultimo_desbloqueio->id_usuario_desbloqueio);
+            $usuario_model->findById($usuario_desbloqueio);
+            $acordo->setUsuarioDesbloqueio($usuario_desbloqueio);
+
+            $data_desbloqueio = new DateTime($ultimo_desbloqueio->data_desbloqueio);
+            $acordo->setDataDesbloqueio($data_desbloqueio);
+        }  
+        
 	}
 	
 	/**
@@ -226,6 +239,76 @@ class Acordo_Taxas_Locais_Model extends CI_Model implements Database_Operations 
 		
 	}
 	
+    /**
+     * localizarUltimoDesbloqueioDoAcordoDeTaxasLocais
+     * 
+     * Localiza o último desbloqueio que foi efetuado em um item de proposta
+     * 
+     * @name localizarUltimoDesbloqueioDoAcordoDeTaxasLocais
+     * @access public
+     * @param $acordo Acordo_Taxas_Entity
+     * @return object
+     */
+    public function localizarUltimoDesbloqueioDoAcordoDeTaxasLocais(Acordo_Taxas_Entity $acordo ) 
+    {
+        
+        $id_acordo = $acordo->getId();
+        
+        if( empty($id_acordo) )
+        {
+            throw new InvalidArgumentException("Acordo informado não é valido");
+        }    
+        
+        $this->db->
+                select("*")->
+                from("CLIENTES.desbloqueios_taxas")->
+                where("id_taxa_item",$id_acordo)->
+                where("modulo","taxa_local")->
+                where("status !=","P")->
+                order_by("data_desbloqueio,id_desbloqueio_taxa DESC");
+            
+        $rowSetUltimoDesbloqueioTaxa = $this->db->get();
+        
+        /** Seleciona o ultimo desbloqueio de validade se houver **/
+        $this->db->
+                select("*")->
+                from("CLIENTES.desbloqueios_validades")->
+                where("id_item",$id_acordo)->
+                where("modulo","taxa_local")->
+                where("status !=","P")->
+                order_by("data_desbloqueio,id_desbloqueio_validade DESC");
+
+        $rowSetUltimoDesbloqueioValidade = $this->db->get();
+        
+        if( $rowSetUltimoDesbloqueioTaxa->num_rows() > 0 && $rowSetUltimoDesbloqueioValidade->num_rows() > 0 )
+		{
+            $ultimoDesbloqueioTaxa = $rowSetUltimoDesbloqueioTaxa->row();
+            $ultimoDesbloqueioValidade = $rowSetUltimoDesbloqueioValidade->row();
+            
+			if( $ultimoDesbloqueioValidade->data_desbloqueio > $ultimoDesbloqueioTaxa->data_desbloqueio )
+			{
+				return $ultimoDesbloqueioValidade;		
+			}
+			else
+			{
+				return $ultimoDesbloqueioTaxa;
+			}	
+		}	
+		else if( $rowSetUltimoDesbloqueioTaxa->num_rows() > 0 )
+		{
+			return $rowSetUltimoDesbloqueioTaxa->row();
+		}
+		else if( $rowSetUltimoDesbloqueioValidade->num_rows() > 0 )
+		{
+			return $rowSetUltimoDesbloqueioValidade->row();
+		}
+		else
+		{
+			return new stdClass();
+		}	
+        
+    }
+    
 	public function update( Entity $bean ){}
 	public function delete( Entity $bean ){}
 		

@@ -13,7 +13,8 @@ class Propostas extends CI_Controller {
 	{
 		parent::__construct();
 		
-		$this->load->helper(Array("form","html","url"));		
+		$this->load->helper(Array("form","html","url"));	
+        $this->output->enable_profiler(FALSE);
 	}
 
 	public function index()

@@ -32,8 +32,11 @@ class Item_Proposta{
     protected $volumes = null;
     protected $observacao_interna = null; 
     protected $observacao_cliente = null; 
-	
-	public function __construct(Tarifario $tarifario = NULL)
+    protected $usuario_desbloqueio = null;
+    protected $data_desbloqueio = null;
+
+
+    public function __construct(Tarifario $tarifario = NULL)
 	{
 		if(!is_null($tarifario))
         {
@@ -414,5 +417,29 @@ class Item_Proposta{
     { 
        $this->observacao_cliente = $observacao_cliente ;
     } 
+    
+    public function getUsuarioDesbloqueio() 
+    {
+        return $this->usuario_desbloqueio;
+    }
+
+    public function getDataDesbloqueio() 
+    {
+        return $this->data_desbloqueio;
+    }
+
+    public function setUsuarioDesbloqueio(Usuario $usuario_desbloqueio) 
+    {
+        $this->usuario_desbloqueio = $usuario_desbloqueio;
+        return $this;
+    }
+
+    public function setDataDesbloqueio(DateTime $data_desbloqueio) 
+    {
+        $this->data_desbloqueio = $data_desbloqueio;
+        return $this;
+    }
+
+
 	
 }//END CLASS

@@ -149,11 +149,24 @@ $verifica_bloqueio = new Verifica_Desbloqueio_Pendente();
                         <p>
                         <table cellpadding="1" cellspacing="1" width="97%" border="0" align="center" class="tabela_padrao">
                         	<tr>
-                        		<td colspan="4">Status do Item</td>                        		
+                        		<td colspan="2">Status do Item</td>   
+                                <td colspan="2">Desbloqueado Última Vez por:</td>
                         	</tr>
                         	<tr>
-                        		<td colspan="4" class="texto_pb">
+                        		<td colspan="2" class="texto_pb">
                         			<?php echo $item->getStatus()->getStatus();?>
+                        		</td>
+                                <td colspan="2" class="texto_pb">
+                        			<?php 
+                                    if( ! is_null($item->getUsuarioDesbloqueio()) )
+                                    {
+                                        echo $item->getUsuarioDesbloqueio()->getNome() . " EM " . $item->getDataDesbloqueio()->format('d/m/Y H:i:s');
+                                    }
+                                    else
+                                    {
+                                        echo "Não houve desbloqueio para este item";
+                                    }    
+                                    ?>
                         		</td>
                         	</tr>
                         	<tr>

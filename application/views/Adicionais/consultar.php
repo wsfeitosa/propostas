@@ -56,18 +56,21 @@ if( $acordo->getAprovacaoPendente() == "S" )
 					</td>																					      
 				</tr>
 				<tr>
-					<td colspan="2">
+					<td colspan="1">
 						Acordo Cadastrado Por:
 					</td>					
-					<td colspan="2">
+					<td colspan="1">
 						Acordo Alterado Por:			
-					</td>															                                                   
+					</td>
+                    <td colspan="2">
+						Última Vez Autorizado Por:			
+					</td>
 				</tr>							
 				<tr>					
-					<td class="texto_pb" colspan="2">							
+					<td class="texto_pb" colspan="1">							
 						<?php echo $acordo->getUsuarioCadastro()->getNome() . " em: " . $acordo->getDataCadastro()->format('d/m/Y H:i:s'); ?>										
 					</td>					
-					<td class="texto_pb" colspan="2">							
+					<td class="texto_pb" colspan="1">							
 						<?php
 						if( ! is_null($acordo->getUsuarioAlteracao()) )
 						{	 
@@ -78,7 +81,19 @@ if( $acordo->getAprovacaoPendente() == "S" )
 							echo "NÃO HOUVE ALTERAÇÃO";
 						}	
 						?>
-					</td>																					      
+					</td>
+                    <td class="texto_pb" colspan="2">							
+						<?php
+						if( ! is_null($acordo->getUsuarioDesbloqueio()) )
+						{	 
+							echo $acordo->getUsuarioDesbloqueio()->getNome() . " em: " . $acordo->getDataDesbloqueio()->format('d/m/Y H:i:s'); 
+						}
+						else 
+						{
+							echo "NÃO HOUVE DESBLOQUEIO";
+						}	
+						?>
+					</td>
 				</tr>
 				<tr>
 					<td colspan='4' width="50%">

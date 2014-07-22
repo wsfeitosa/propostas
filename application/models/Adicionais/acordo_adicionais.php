@@ -28,8 +28,12 @@ class Acordo_Adicionais extends CI_Model {
 	protected $taxas = Array();
 	
 	protected $aprovacao_pendente = null;
-	
-	public function __construct()
+    
+    protected $usuario_desbloqueio = null;
+
+    protected $data_desbloqueio = null;
+
+    public function __construct()
 	{
 		
 	}
@@ -225,6 +229,28 @@ class Acordo_Adicionais extends CI_Model {
 		return $this->aprovacao_pendente;
 	}
 	
+    public function getUsuarioDesbloqueio() 
+    {
+        return $this->usuario_desbloqueio;
+    }
+
+    public function getDataDesbloqueio() 
+    {
+        return $this->data_desbloqueio;
+    }
+
+    public function setUsuarioDesbloqueio($usuario_desbloqueio) 
+    {
+        $this->usuario_desbloqueio = $usuario_desbloqueio;
+        return $this;
+    }
+
+    public function setDataDesbloqueio($data_desbloqueio) 
+    {
+        $this->data_desbloqueio = $data_desbloqueio;
+        return $this;
+    }
+            
 	public function serializar()
 	{			
 		return serialize($this);		 

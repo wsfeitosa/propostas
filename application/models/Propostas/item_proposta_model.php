@@ -20,7 +20,77 @@ class Item_Proposta_Model extends CI_Model {
     public function __construct() {
         parent::__construct();        
     }
-      
+    
+    /**
+     * localizarUltimoDesbloqueioDoItem
+     * 
+     * Localiza o último desbloqueio que foi efetuado em um item de proposta
+     * 
+     * @name salvarItem
+     * @access public
+     * @param $item Item_Proposta
+     * @return object
+     */
+    public function localizarUltimoDesbloqueioDoItem( Item_Proposta $item ) 
+    {
+        
+        $id_item = $item->getId();
+        
+        if( empty($id_item) )
+        {
+            throw new InvalidArgumentException("Item de proposta informado não é valido");
+        }    
+        
+        $this->db->
+                select("*")->
+                from("CLIENTES.desbloqueios_taxas")->
+                where("id_taxa_item",$id_item)->
+                where("modulo","proposta")->
+                where("status !=","P")->
+                order_by("data_desbloqueio,id_desbloqueio_taxa DESC");
+            
+        $rowSetUltimoDesbloqueioTaxa = $this->db->get();
+        
+        /** Seleciona o ultimo desbloqueio de validade se houver **/
+        $this->db->
+                select("*")->
+                from("CLIENTES.desbloqueios_validades")->
+                where("id_item",$id_item)->
+                where("modulo","proposta")->
+                where("status !=","P")->
+                order_by("data_desbloqueio,id_desbloqueio_validade DESC");
+
+        $rowSetUltimoDesbloqueioValidade = $this->db->get();
+        
+        if( $rowSetUltimoDesbloqueioTaxa->num_rows() > 0 && $rowSetUltimoDesbloqueioValidade->num_rows() > 0 )
+		{
+            $ultimoDesbloqueioTaxa = $rowSetUltimoDesbloqueioTaxa->row();
+            $ultimoDesbloqueioValidade = $rowSetUltimoDesbloqueioValidade->row();
+            
+			if( $ultimoDesbloqueioValidade->data_desbloqueio > $ultimoDesbloqueioTaxa->data_desbloqueio )
+			{
+				return $ultimoDesbloqueioValidade;		
+			}
+			else
+			{
+				return $ultimoDesbloqueioTaxa;
+			}	
+		}	
+		else if( $rowSetUltimoDesbloqueioTaxa->num_rows() > 0 )
+		{
+			return $rowSetUltimoDesbloqueioTaxa->row();
+		}
+		else if( $rowSetUltimoDesbloqueioValidade->num_rows() > 0 )
+		{
+			return $rowSetUltimoDesbloqueioValidade->row();
+		}
+		else
+		{
+			return new stdClass();
+		}	
+        
+    }
+    
     /**
      * salvarItens
      * 
@@ -262,6 +332,8 @@ class Item_Proposta_Model extends CI_Model {
      	 include_once APPPATH."models/Propostas/item_proposta.php";
      	 include_once APPPATH."models/Propostas/status_item.php";
      	 include_once APPPATH."models/Taxas/item_proposta_taxa_model.php";
+         include_once APPPATH."models/Usuarios/usuario.php";
+         include_once APPPATH."models/Usuarios/usuario_model.php";
      	 
          /** Verifica se o id da proposta já foi definido **/
          $id_proposta = $proposta->getId();
@@ -305,7 +377,9 @@ class Item_Proposta_Model extends CI_Model {
          $item_proposta_taxa_model = new Item_Proposta_Taxa_Model();
          
          $result_itens_encontrados = $rs->result();
-                  
+         
+         $usuario_model = new Usuario_Model();
+         
          foreach ( $result_itens_encontrados as $item_encontrado ) 
          {
              
@@ -345,9 +419,24 @@ class Item_Proposta_Model extends CI_Model {
              $item->setStatus($status);      
              
              $item_proposta_taxa_model->buscaTaxasDoItemDaProposta($item);
-                                       
+             
+             /** Busca o último desbloqueio de cada item da proposta **/
+             $ultimo_desbloqueio = $this->localizarUltimoDesbloqueioDoItem($item);
+             
+             /** Testa se o objeto está preenchido com os valores da classe de Active Recorde **/
+             if( ! empty($ultimo_desbloqueio->id_usuario_desbloqueio) )
+             {                 
+                 $usuario_desbloqueio = new Usuario();
+                 $usuario_desbloqueio->setId((int)$ultimo_desbloqueio->id_usuario_desbloqueio);
+                 $usuario_model->findById($usuario_desbloqueio);
+                 $item->setUsuarioDesbloqueio($usuario_desbloqueio);
+                 
+                 $data_desbloqueio = new DateTime($ultimo_desbloqueio->data_desbloqueio);
+                 $item->setDataDesbloqueio($data_desbloqueio);
+             }    
+             
              $proposta->adicionarNovoItem($item);
-                                            
+                                                         
          }
         
      }//END FUNCTION

@@ -20,7 +20,7 @@ foreach( $acordo->getTaxas() as $taxa )
 	$changer = new Formata_Taxa();
 	
 	$taxas_selecionadas[$changer->formatarValueTaxa($taxa, ";")] = $changer->formatarLabelTaxa($taxa);
-}	
+}
 
 ?>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" class="tabela_azul">
@@ -50,7 +50,23 @@ foreach( $acordo->getTaxas() as $taxa )
 					<td class="texto_pb">
 						<?php echo $acordo->getUsuarioInclusao()->getNome(). " | ".$acordo->getDataInclusao()->format("d-m-Y H:i:s");?>
 					</td>
-				</tr>					
+				</tr>
+                <tr>
+					<td>
+						Alterado Última Vez Por:
+					</td>
+					<td>
+						Desbloqueado Última Vez Por:
+					</td>
+				</tr>
+                <tr>
+					<td class="texto_pb" >
+						<?php echo $acordo->getUsuarioAlteracao() == NULL ? "Não Há" : $acordo->getUsuarioAlteracao()->getNome(). " EM ".$acordo->getDataAlteracao()->format("d/m/Y H:i:s");?>
+					</td>
+					<td class="texto_pb">
+						<?php echo $acordo->getUsuarioDesbloqueio() == NULL ? "Não Houve Debloqueio" : $acordo->getUsuarioDesbloqueio()->getNome(). " EM ".$acordo->getDataDesbloqueio()->format("d/m/Y H:i:s");?>
+					</td>					
+				</tr>
 				<tr>
 					<td>
 						Inicio:

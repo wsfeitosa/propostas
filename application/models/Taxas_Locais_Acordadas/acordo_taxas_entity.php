@@ -27,8 +27,9 @@ class Acordo_Taxas_Entity implements Entity {
 	protected $usuario_alteracao;
 	protected $data_alteracao;
 	protected $registro_ativo;
+    protected $usuario_desbloqueio = NULL;
+    protected $data_desbloqueio = NULL;
     protected $memento = NULL;
-
 
     public function __construct() 
 	{
@@ -188,7 +189,29 @@ class Acordo_Taxas_Entity implements Entity {
         $this->registro_ativo = $registro_ativo;
         return $this;
     }
+    
+    public function getUsuarioDesbloqueio() 
+    {
+        return $this->usuario_desbloqueio;
+    }
 
+    public function getDataDesbloqueio() 
+    {
+        return $this->data_desbloqueio;
+    }
+
+    public function setUsuarioDesbloqueio(Usuario $usuario_desbloqueio) 
+    {
+        $this->usuario_desbloqueio = $usuario_desbloqueio;
+        return $this;
+    }
+
+    public function setDataDesbloqueio(DateTime $data_desbloqueio) 
+    {
+        $this->data_desbloqueio = $data_desbloqueio;
+        return $this;
+    }
+            
     public function CreateMemento()
     {
     	include_once "/var/www/html/allink/Clientes/propostas/application/models/Taxas_Locais_Acordadas/Memento/memento.php";

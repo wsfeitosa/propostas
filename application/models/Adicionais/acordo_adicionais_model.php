@@ -260,5 +260,36 @@ class Acordo_Adicionais_Model extends CI_Model{
         $this->db->where("id",$acordo->getId());
         return $this->db->update("CLIENTES.acordo_adicionais", array("ativo" => "N"));
     } 
+    
+    public function localizaUltimoDesbloqueio( Acordo_Adicionais $acordo )
+    {
+        $this->db->
+                select("*")->
+                from("CLIENTES.desbloqueios_adicionais")->
+                where("id_acordo",$acordo->getId())->
+                where("status !=",strtoupper("pendente"))->
+                order_by("id","desc");
+        
+        $rowSet = $this->db->get();
+        
+        if( $rowSet->num_rows() > 0 )
+        {
+            $row = $rowSet->row();               
+            
+            $this->load->model("Usuarios/usuario");
+            $this->load->model("Usuarios/usuario_model");
+            
+            $usuario_desbloqueio = new Usuario();
+            $usuario_model = new Usuario_Model();
+            
+            $usuario_desbloqueio->setId((int)$row->id_usuario_aprovacao);
+            $usuario_model->findById($usuario_desbloqueio);
+            $data_desbloqueio = new DateTime($row->data_desbloqueio);
+            
+            $acordo->setUsuarioDesbloqueio($usuario_desbloqueio);
+            $acordo->setDataDesbloqueio($data_desbloqueio);
+        }    
+        
+    }   
 		
 }

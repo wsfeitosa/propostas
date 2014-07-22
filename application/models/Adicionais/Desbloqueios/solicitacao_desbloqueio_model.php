@@ -118,5 +118,5 @@ class Solicitacao_Desbloqueio_Model extends CI_Model {
 		$solicitacao->setAcordo($acordo);
 						
 	}
-			
+    			
 }

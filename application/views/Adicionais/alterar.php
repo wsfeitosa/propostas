@@ -20,15 +20,37 @@
 					<p style="font-size: 12px; color: black;"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>Deseja validar esse acordo para todas as propostas existentes ou apenas para as novas ?</p>
 				</div>                       
 				<tr>
-					<td colspan="2" >
+					<td>
 						Número:
 					</td>
+                    <td>
+                        Cadastrado Por:
+                    </td>
 				</tr>
 				<tr>
-					<td class="texto_pb" colspan="2">							
+					<td class="texto_pb">							
 						<?php echo $acordo->getNumeroAcordo(); ?>						
 					</td>
-				</tr>	
+                    <td class="texto_pb">							
+						<?php echo $acordo->getUsuariocadastro()->getNome() . " EM " . $acordo->getDataCadastro()->format('d/m/Y H:i:s'); ?>						
+					</td>
+				</tr>
+                <tr>
+					<td>
+						Alterado Última Vez Por:
+					</td>
+                    <td>
+                        Desbloqueado Última Pez Por:
+                    </td>
+				</tr>
+                <tr>
+					<td class="texto_pb" >
+						<?php echo $acordo->getUsuarioAlteracao() == NULL ? "Não Há" : $acordo->getUsuarioAlteracao()->getNome(). " EM ".$acordo->getDataAlteracao()->format("d/m/Y H:i:s");?>
+					</td>
+					<td class="texto_pb">
+						<?php echo $acordo->getUsuarioDesbloqueio() == NULL ? "Não Houve Debloqueio" : $acordo->getUsuarioDesbloqueio()->getNome(). " EM ".$acordo->getDataDesbloqueio()->format("d/m/Y H:i:s");?>
+					</td>					
+				</tr>
 				<tr>
 					<td>
 						Inicio:

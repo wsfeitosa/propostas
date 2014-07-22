@@ -1046,7 +1046,16 @@ class Proposta_Model extends CI_Model {
                          
                 }   
             }
-
+            
+            if( ! is_null($item->getUsuarioDesbloqueio()) )
+            {
+                $ultimo_desbloqueio = $item->getUsuarioDesbloqueio()->getNome() . " EM " . $item->getDataDesbloqueio()->format('d/m/Y H:i:s');
+            }
+            else
+            {
+                $ultimo_desbloqueio =  "Não houve desbloqueio para este item";
+            }  
+            
             $itens_formatados .='<h2 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1">
                                     <span class="ui-icon ui-icon-triangle-1-e"></span>
                                     <a href="#"  tabindex="-1">
@@ -1061,11 +1070,15 @@ class Proposta_Model extends CI_Model {
                                     <p>
                                     <table cellpadding="1" cellspacing="1" width="97%" border="0" align="center" class="tabela_padrao">
                                         <tr>
-                                            <td colspan="4">Status do Item</td>                             
+                                            <td colspan="2">Status do Item</td> 
+                                            <td colspan="2">Desbloqueado Última Vez por:</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="4" class="texto_pb">
+                                            <td colspan="2" class="texto_pb">
                                                 '.$item->getStatus()->getStatus().'
+                                            </td>
+                                            <td colspan="2" class="texto_pb">
+                                                '.utf8_encode($ultimo_desbloqueio).'
                                             </td>
                                         </tr>
                                         <tr>

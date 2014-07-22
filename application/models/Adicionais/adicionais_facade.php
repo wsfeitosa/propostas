@@ -110,6 +110,8 @@ class Adicionais_Facade extends CI_Model{
 		
 		$acordo_model->consultarAcordoAdicionaisPorId($acordo_adicionais);		
 		
+        $acordo_model->localizaUltimoDesbloqueio($acordo_adicionais);
+        
 		return $acordo_adicionais;
 	}
 	
