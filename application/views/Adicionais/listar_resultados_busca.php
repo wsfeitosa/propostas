@@ -1,3 +1,9 @@
+<?php 
+$this->load->model("Adicionais/valida_periodo_vencimento");
+$this->load->model("Adicionais/acordo_adicionais");
+
+$validador = new Valida_Periodo_Vencimento();
+?>
 <link rel="stylesheet" type="text/css" href="/Estilos/tooltip.css">
 <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" class="tabela_azul">
 	<tr>
@@ -29,34 +35,41 @@
 						Validade:
 					</td>															                                                   
 				</tr>
-				<?php foreach($acordos_encontrados as $acordo): ?>							
+				<?php foreach($acordos_encontrados as $acordo): ?>	
+                
+                <?php		
+                $acordo_adicional = new Acordo_Adicionais();
+                $acordo_adicional->setId((int)$acordo['id_acordo']);
+                
+				$style = $validador->retornaCorDeAcordoComVencimento($acordo_adicional);	                
+				?>
 				<tr>
-					<td align="center"class="texto_pb">											
+					<td align="center"class="texto_pb" <?php echo $style;?> >											
                         <a href="#" id_acordo="<?php echo $acordo['id_acordo'];?>">						
 						<?php echo $acordo['numero_acordo'];?>
                         </a>                        
 					</td>
-					<td align="center"class="texto_pb">		
+					<td align="center"class="texto_pb" <?php echo $style;?> >		
 						<a href="#" id_acordo="<?php echo $acordo['id_acordo'];?>">						
 						<?php echo $acordo['clientes'];?>
                         </a> 
 					</td>
-                    <td align="center" class="texto_pb">							
+                    <td align="center" class="texto_pb" <?php echo $style;?> >							
 						<a href="#" id_acordo="<?php echo $acordo['id_acordo'];?>">						
 						<?php echo $acordo['taxas_acordo'];?>
                         </a> 
 					</td>
-                    <td align="center" class="texto_pb">							
+                    <td align="center" class="texto_pb" <?php echo $style;?> >							
 						<a href="#" id_acordo="<?php echo $acordo['id_acordo'];?>">						
 						<?php echo $acordo['aprovacao_pendente'];?>
                         </a> 
 					</td>
-					<td align="center" class="texto_pb">							
+					<td align="center" class="texto_pb" <?php echo $style;?> >							
 						<a href="#" id_acordo="<?php echo $acordo['id_acordo'];?>">						
 						<?php echo $acordo['data_inicial']->format('d/m/Y');?>
                         </a> 
 					</td>
-					<td align="center" class="texto_pb">							
+					<td align="center" class="texto_pb" <?php echo $style;?> >							
 						<a href="#" id_acordo="<?php echo $acordo['id_acordo'];?>">						
 						<?php echo $acordo['data_final']->format('d/m/Y');?>
                         </a> 		

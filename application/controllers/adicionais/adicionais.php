@@ -17,7 +17,7 @@ class Adicionais extends CI_Controller{
 		$this->load->helper(Array("html","form","url"));
 		$this->load->library('form_validation');
 		$this->load->library('session');
-		$this->output->enable_profiler(false);
+		$this->output->enable_profiler(FALSE);
 	}
 	
 	public function novo()
